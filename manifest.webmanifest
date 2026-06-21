@@ -1,0 +1,11 @@
+{
+  "name": "Lumu Group of Companies",
+  "short_name": "Lumu Group",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "64x64", "type": "image/svg+xml" }
+  ]
+}
