@@ -1,6 +1,13 @@
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
+const header = $('.header');
+if (header) {
+  const setScrolled = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  setScrolled();
+  window.addEventListener('scroll', setScrolled, { passive: true });
+}
+
 const menuButton = $('.menu-toggle');
 const navLinks = $('.nav-links');
 if (menuButton && navLinks) {
