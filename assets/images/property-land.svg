@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="680" viewBox="0 0 760 680" role="img" aria-labelledby="title desc">
+<title id="title">Lumu Land illustration</title><desc id="desc">Premium orange land illustration used on the Lumu website.</desc>
+<defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9a1f"/><stop offset=".55" stop-color="#ff6a00"/><stop offset="1" stop-color="#bf4200"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#733000" flood-opacity=".15"/></filter></defs>
+<rect width="760" height="680" rx="44" fill="#fff7ed"/><g transform="translate(0 0)" fill="url(#o)" filter="url(#s)"><path d="M80 478c90-94 172-122 296-84 112 34 197 16 312-76v178c-119 88-215 109-337 68-101-34-175-10-271 78V478Z"/><path d="M116 376c78-66 150-83 242-52 94 32 170 15 264-58" fill="none" stroke="#fff7ed" stroke-width="28" stroke-linecap="round"/><circle cx="600" cy="146" r="66" fill="#fff7ed" opacity=".9"/></g>
+</svg>

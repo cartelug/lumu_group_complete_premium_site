@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "about.html",
+    "auto-dealers.html",
+    "contact.html",
+    "index.html",
+    "real-estate.html"
+  ],
+  "assets": 16,
+  "css_bytes": 17491,
+  "js_bytes": 4611,
+  "notes": "Passed basic local link checks and required file checks."
+}

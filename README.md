@@ -1,40 +1,43 @@
-# Lumu Group of Companies — Complete Premium Website
+# Lumu Group of Companies — One-Month Final Website Build
 
-This is a mobile-first static website for **Lumu Group of Companies**, with dedicated pages for:
+This package is a polished static website for **Lumu Group of Companies** with two major divisions:
 
-- Home
-- Lumu Auto Dealers
-- Lumu Real Estate
-- About
-- Contact
+- **Lumu Auto Dealers** — vehicle sales, car importation, trade-ins, fleet sourcing, documentation support and after-sales guidance.
+- **Lumu Real Estate** — land, houses, rentals, apartments, commercial property, property listing and investment guidance.
 
 ## Files
 
-- `index.html` — homepage
+- `index.html` — premium homepage
 - `auto-dealers.html` — full auto division page
 - `real-estate.html` — full real estate division page
-- `about.html` — brand/about page
-- `contact.html` — contact and general inquiry page
-- `styles.css` — complete responsive styling
-- `script.js` — mobile menu, tabs, filters, FAQ, WhatsApp inquiry generator
-- `assets/` — SVG logo/illustrations/favicon
-- `manifest.webmanifest`, `robots.txt`, `sitemap.xml`
+- `about.html` — company positioning page
+- `contact.html` — contact and inquiry page
+- `assets/css/styles.css` — white + premium orange design system
+- `assets/js/app.js` — navigation, filters, FAQ and WhatsApp message generator
+- `assets/images/` — custom generated SVG illustrations and brand assets
+- `manifest.webmanifest`, `robots.txt`, `sitemap.xml` — launch and SEO support
+- `docs/` — design research and content map
 
 ## Replace before launch
 
 Search and replace these placeholders:
 
-- `+256 700 000 000`
-- `256700000000` inside `script.js` for WhatsApp links
-- `info@lumugroup.com`
-- `Official office location goes here`
-- `https://example.com` in `sitemap.xml` and schema metadata
-- Replace `assets/lumu-mark.svg` with the official logo if available
+- Phone: `+256 700 000 000`
+- WhatsApp: `+256700000000`
+- Email: `info@lumugroup.com`
+- Location: `Kampala, Uganda`
+- Domain in sitemap/robots: `https://www.lumugroup.com`
 
-## Performance notes
+## How to run locally
 
-The site is built without heavy animation libraries, canvas effects, or large image files. It uses lightweight SVG illustrations and minimal JavaScript to stay fast on mobile.
+Open `index.html` in your browser, or run a local static server:
 
-## Font notes
+```bash
+python3 -m http.server 8080
+```
 
-The pages load Montserrat and Plus Jakarta Sans from Google Fonts with `font-display=swap`. If the site is offline, it falls back to system sans-serif fonts.
+Then visit `http://localhost:8080`.
+
+## Notes
+
+The forms are static and do not save data. They generate a WhatsApp-ready inquiry message. For production, connect the forms to email, WhatsApp Business API, a CRM, or Google Sheets.

@@ -1,11 +1,16 @@
 {
   "name": "Lumu Group of Companies",
   "short_name": "Lumu Group",
-  "start_url": "./index.html",
+  "description": "Premium website for Lumu Auto Dealers and Lumu Real Estate.",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f97316",
+  "theme_color": "#ff7a00",
   "icons": [
-    { "src": "assets/favicon.svg", "sizes": "64x64", "type": "image/svg+xml" }
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
   ]
 }
