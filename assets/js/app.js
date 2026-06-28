@@ -123,3 +123,67 @@ $('#openWhatsapp')?.addEventListener('click', () => {
 });
 
 $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Scroll progress bar */
+const progress = document.createElement('div');
+progress.className = 'scroll-progress';
+progress.setAttribute('aria-hidden', 'true');
+document.body.appendChild(progress);
+let progressTicking = false;
+function updateProgress() {
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - doc.clientHeight;
+  const ratio = max > 0 ? Math.min(doc.scrollTop / max, 1) : 0;
+  progress.style.transform = `scaleX(${ratio})`;
+  progressTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!progressTicking) { requestAnimationFrame(updateProgress); progressTicking = true; }
+}, { passive: true });
+updateProgress();
+
+/* Animated count-up stats */
+const counters = $$('[data-count]');
+if (counters.length) {
+  const runCount = el => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    const duration = 1400;
+    const start = performance.now();
+    const tick = now => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window) {
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { runCount(entry.target); countObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => countObserver.observe(c));
+  } else {
+    counters.forEach(runCount);
+  }
+}
+
+/* Sticky scrollytelling showcase */
+const showSteps = $$('.showcase-step');
+const showMedias = $$('.showcase-media');
+if (showSteps.length && showMedias.length && 'IntersectionObserver' in window) {
+  const showObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const key = entry.target.dataset.target;
+        showMedias.forEach(m => m.classList.toggle('active', m.dataset.show === key));
+      }
+    });
+  }, { threshold: 0.5, rootMargin: '-20% 0px -20% 0px' });
+  showSteps.forEach(s => showObserver.observe(s));
+}
