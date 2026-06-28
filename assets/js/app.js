@@ -187,3 +187,15 @@ if (showSteps.length && showMedias.length && 'IntersectionObserver' in window) {
   }, { threshold: 0.5, rootMargin: '-20% 0px -20% 0px' });
   showSteps.forEach(s => showObserver.observe(s));
 }
+
+/* Back-to-top button */
+const toTop = document.createElement('button');
+toTop.className = 'to-top';
+toTop.type = 'button';
+toTop.setAttribute('aria-label', 'Back to top');
+toTop.innerHTML = '↑';
+document.body.appendChild(toTop);
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+const toggleToTop = () => toTop.classList.toggle('show', window.scrollY > 600);
+toggleToTop();
+window.addEventListener('scroll', toggleToTop, { passive: true });

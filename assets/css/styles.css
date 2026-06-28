@@ -169,3 +169,14 @@ main{counter-reset:sec}.section,.section-tight{counter-increment:sec}.section>.c
 .photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media (max-width:1080px){.photo-grid{grid-template-columns:repeat(2,1fr)}.photo-duo{grid-template-columns:1fr}.hero-photo h1{font-size:clamp(2.7rem,9vw,4.4rem)}}
 @media (max-width:560px){.photo-grid{grid-template-columns:1fr}.ptile-lg{min-height:400px}.hero-photo .container{padding-top:120px;padding-bottom:64px}.hero-photo{min-height:auto}}
+
+/* ===== Polish & completeness ===== */
+.hero-photo .hero-copy{text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.ptile-body{text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.photo-grid>.reveal{transition-delay:calc(var(--i,0)*70ms)}.photo-grid>.reveal:nth-child(1){--i:0}.photo-grid>.reveal:nth-child(2){--i:1}.photo-grid>.reveal:nth-child(3){--i:2}.photo-grid>.reveal:nth-child(4){--i:3}
+.to-top{position:fixed;right:22px;bottom:24px;z-index:95;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line-strong);color:var(--text);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s var(--ease),transform .3s var(--ease),border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease);cursor:pointer;font-size:1.15rem;line-height:1}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{border-color:var(--orange-400);color:var(--orange-300);background:var(--surface-3)}
+@media (max-width:860px){.to-top{bottom:84px;right:16px;width:44px;height:44px}}
+.error-page{min-height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(130% 90% at 50% -10%,#1c130c 0%,var(--bg) 62%)}
+.error-page .ecode{font-family:var(--ff-display);font-weight:700;font-size:clamp(6rem,22vw,15rem);line-height:.86;letter-spacing:-.04em;background:linear-gradient(180deg,#fff,var(--orange-400));-webkit-background-clip:text;background-clip:text;color:transparent}
