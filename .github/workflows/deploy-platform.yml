@@ -1,9 +1,10 @@
 name: Deploy platform to GitHub Pages
 
 on:
-  # Manual trigger only. The live site is currently served from the branch
-  # root (the exported files below). Enable this workflow + set Pages Source
-  # to "GitHub Actions" if you prefer build-on-push instead of committed output.
+  # Pages Source is "GitHub Actions", so this workflow IS the deploy.
+  # Build + deploy the platform on every push to main.
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
