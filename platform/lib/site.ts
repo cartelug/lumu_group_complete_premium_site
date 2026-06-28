@@ -1,14 +1,22 @@
 export const site = {
-  name: "Lumu Group of Companies",
-  shortName: "Lumu Group",
-  phoneDisplay: "+256 700 000 000",
-  phone: "+256700000000",
-  whatsapp: "256700000000",
-  email: "info@lumugroup.com",
-  location: "Kampala, Uganda",
-  url: "https://www.lumugroup.com",
-  tagline: "Auto Dealers & Real Estate",
+  name: "Lumu Autodealers & Logistics Ltd",
+  shortName: "Lumu Autodealers",
+  phoneDisplay: "+256 782 017 381",
+  phone: "+256782017381",
+  phone2Display: "+256 782 493 499",
+  phone2: "+256782493499",
+  whatsapp: "256782017381",
+  email: "info@lumuautodealers.com",
+  location: "Busega – Masaka Road, Kampala",
+  addressLine: "P.O. Box 72434, Kampala — Busega, Masaka Road",
+  url: "https://www.lumuautodealers.com",
+  tagline: "Built on Trust",
+  promise: "Quality Service. Honest Work. Lasting Relationships.",
+  since: 2018,
+  hours: "Mon – Sat, 8:00am – 6:00pm",
 };
+
+export const brands = ["Toyota", "Nissan", "Hino", "Isuzu", "Mitsubishi", "Yamaha"];
 
 export const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -17,9 +25,4 @@ export const asset = (p: string) => `${BASE}${p.startsWith("/") ? "" : "/"}${p}`
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
-}
-
-export function formatPrice(amount: number, currency: "USD" | "UGX") {
-  if (currency === "UGX") return `UGX ${amount.toLocaleString("en-US")}`;
-  return `$${amount.toLocaleString("en-US")}`;
 }

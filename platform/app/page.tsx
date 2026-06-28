@@ -1,77 +1,92 @@
 import Link from "next/link";
-import { featuredVehicles, featuredProperties } from "@/lib/data";
-import VehicleCard from "@/components/VehicleCard";
-import PropertyCard from "@/components/PropertyCard";
+import { featuredServices } from "@/lib/data";
+import { site, whatsappLink } from "@/lib/site";
+import ServiceCard from "@/components/ServiceCard";
+import BrandStrip from "@/components/BrandStrip";
 import Faq from "@/components/Faq";
 
-const HERO = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80";
+const bookWhatsApp = whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.");
 
 export default function Home() {
-  const vehicles = featuredVehicles().slice(0, 3);
-  const properties = featuredProperties().slice(0, 3);
+  const years = new Date().getFullYear() - site.since;
+  const svc = featuredServices().slice(0, 6);
 
   return (
     <>
       <section className="hero-photo">
-        <div
-          className="hero-bg"
-          aria-hidden="true"
-          style={{ backgroundImage: `url(${HERO})`, backgroundSize: "cover", backgroundPosition: "center" }}
-        />
         <span className="hero-glow" aria-hidden="true" />
         <div className="container">
           <div className="hero-copy reveal">
-            <span className="kicker">Premium group company</span>
-            <h1 className="mt-24">One trusted group. <span className="orange">Two powerful divisions.</span></h1>
-            <p className="lead mt-24">Browse real vehicles and properties from Lumu Auto Dealers and Lumu Real Estate — then send a clear, WhatsApp-ready inquiry in one tap.</p>
+            <span className="kicker">Built on Trust · Since {site.since}</span>
+            <h1 className="mt-24">Trusted automotive care <span className="orange">you can rely on.</span></h1>
+            <p className="lead mt-24">Professional motor vehicle repairs, servicing, diagnostics, genuine spare parts and logistics in Kampala — honest work, fair quotes and fast turnaround for private cars and company fleets.</p>
             <div className="cta-row mt-36">
-              <Link className="btn btn-primary" href="/auto-dealers/">Browse vehicles</Link>
-              <Link className="btn btn-outline-light" href="/real-estate/">View properties</Link>
+              <a className="btn btn-primary" href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
+              <Link className="btn btn-outline-light" href="/services/">Our services</Link>
             </div>
             <div className="hero-metrics">
-              <div className="metric"><strong data-count="2">0</strong><span>Specialist divisions</span></div>
-              <div className="metric"><strong data-count="15" data-suffix="+">0</strong><span>Live listings</span></div>
-              <div className="metric"><strong data-count="100" data-suffix="%">0</strong><span>Mobile-first</span></div>
+              <div className="metric"><strong data-count={years} data-suffix="+">0</strong><span>Years of service</span></div>
+              <div className="metric"><strong data-count="6" data-suffix="+">0</strong><span>Brands serviced</span></div>
+              <div className="metric"><strong data-count="100" data-suffix="%">0</strong><span>Genuine parts</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="marquee">
-        <div className="container">
-          <div className="marquee-track">
-            <span>Vehicle Sales<b>•</b>Car Importation<b>•</b>Trade-Ins<b>•</b>Fleet Sourcing<b>•</b>Land<b>•</b>Houses<b>•</b>Rentals<b>•</b>Commercial Property<b>•</b></span>
-            <span>Vehicle Sales<b>•</b>Car Importation<b>•</b>Trade-Ins<b>•</b>Fleet Sourcing<b>•</b>Land<b>•</b>Houses<b>•</b>Rentals<b>•</b>Commercial Property<b>•</b></span>
-          </div>
+      <section className="section-tight">
+        <div className="container text-center reveal">
+          <span className="eyebrow" style={{ justifyContent: "center" }}>Brands we service &amp; supply parts for</span>
+          <div className="mt-36"><BrandStrip /></div>
         </div>
-      </div>
+      </section>
 
-      <section className="section">
+      <section className="section" id="services">
         <div className="container">
           <div className="explorer-bar">
             <div className="reveal">
-              <span className="eyebrow">Lumu Auto Dealers</span>
-              <h2 className="mt-24">Featured vehicles</h2>
+              <span className="eyebrow">What we do</span>
+              <h2 className="mt-24">Complete automotive services.</h2>
             </div>
-            <Link className="btn btn-ghost" href="/auto-dealers/">View all vehicles</Link>
+            <Link className="btn btn-ghost" href="/services/">View all services</Link>
           </div>
-          <div className="listing-grid">
-            {vehicles.map((v) => <VehicleCard key={v.slug} v={v} />)}
+          <div className="grid grid-3 mt-56">
+            {svc.map((s) => <ServiceCard key={s.slug} s={s} />)}
           </div>
         </div>
       </section>
 
       <section className="section band">
         <div className="container">
-          <div className="explorer-bar">
-            <div className="reveal">
-              <span className="eyebrow eyebrow-light">Lumu Real Estate</span>
-              <h2 className="mt-24">Featured properties</h2>
-            </div>
-            <Link className="btn btn-outline-light" href="/real-estate/">View all properties</Link>
+          <div className="text-center narrow reveal">
+            <span className="eyebrow eyebrow-light">Why customers trust us</span>
+            <h2 className="mt-24">Honest work, every time.</h2>
+            <p className="lead">We answer the question every car owner asks first — can I trust this garage with my vehicle?</p>
           </div>
-          <div className="listing-grid">
-            {properties.map((p) => <PropertyCard key={p.slug} p={p} />)}
+          <div className="grid grid-4 mt-56">
+            <article className="card card-pad reveal"><span className="icon-pill">★</span><h3 className="mt-24">Expert technicians</h3><p className="subtle">Qualified, experienced mechanics with modern, computerized equipment.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill">✓</span><h3 className="mt-24">Reliable service</h3><p className="subtle">Clear quotes before we start — no surprises, no overcharging.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill">⚡</span><h3 className="mt-24">Fast turnaround</h3><p className="subtle">Quick diagnosis and efficient repairs to get you back on the road.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill">♥</span><h3 className="mt-24">Customer satisfaction</h3><p className="subtle">Quality service, honest work and lasting relationships.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container split">
+          <div className="reveal">
+            <span className="eyebrow">For businesses</span>
+            <h2 className="mt-24">Fleet &amp; company vehicle servicing.</h2>
+            <p className="lead">Keep your business moving. We offer scheduled servicing, priority turnaround and logistics support for company cars, school vans, NGO and delivery fleets.</p>
+            <div className="cta-row mt-36">
+              <Link className="btn btn-primary" href="/fleet/">Explore fleet services</Link>
+              <a className="btn btn-ghost" href={bookWhatsApp} target="_blank" rel="noopener">Talk to us</a>
+            </div>
+          </div>
+          <div className="grid grid-2">
+            <div className="card card-pad reveal"><span className="icon-pill">🚚</span><h3 className="mt-24">Service plans</h3><p className="subtle">Scheduled maintenance that prevents costly breakdowns.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill">⏱️</span><h3 className="mt-24">Priority turnaround</h3><p className="subtle">Less downtime for the vehicles your business depends on.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill">🧩</span><h3 className="mt-24">Genuine parts</h3><p className="subtle">Quality, brand-matched parts supplied and fitted.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill">📋</span><h3 className="mt-24">Simple reporting</h3><p className="subtle">Know what was done and what's due next.</p></div>
           </div>
         </div>
       </section>
@@ -80,13 +95,13 @@ export default function Home() {
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow">How it works</span>
-            <h2 className="mt-24">From browse to a real conversation.</h2>
+            <h2 className="mt-24">Simple, transparent, fast.</h2>
           </div>
           <div className="grid grid-4 process mt-56">
-            <article className="card step reveal"><h3>Browse</h3><p>Explore real vehicles and properties with full details and photos.</p></article>
-            <article className="card step reveal"><h3>Shortlist</h3><p>Open any listing to see specs, location and pricing.</p></article>
-            <article className="card step reveal"><h3>Inquire</h3><p>Send a clear, pre-filled inquiry straight to WhatsApp.</p></article>
-            <article className="card step reveal"><h3>Follow up</h3><p>Lumu responds with next steps, viewings or sourcing.</p></article>
+            <article className="card step reveal"><h3>Tell us</h3><p>Send your vehicle and the problem on WhatsApp.</p></article>
+            <article className="card step reveal"><h3>Diagnose &amp; quote</h3><p>We inspect, explain the issue and give a clear quote.</p></article>
+            <article className="card step reveal"><h3>Approve</h3><p>You approve before any work begins — no surprises.</p></article>
+            <article className="card step reveal"><h3>Collect</h3><p>We finish properly and hand back a vehicle you can trust.</p></article>
           </div>
         </div>
       </section>
@@ -95,25 +110,25 @@ export default function Home() {
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow">Common questions</span>
-            <h2 className="mt-24">Answers before the first call.</h2>
+            <h2 className="mt-24">Answers before you bring the car in.</h2>
           </div>
           <div className="grid mt-56">
-            <Faq q="Are these real listings?" a="Yes — the platform is built to showcase real inventory. Listings shown here are sample stock to demonstrate the experience and are easily replaced with live inventory." />
-            <Faq q="Can I inquire about both cars and property?" a="Yes. Lumu Auto Dealers and Lumu Real Estate operate under one trusted group, and every listing has a one-tap inquiry." />
-            <Faq q="How do inquiries reach Lumu?" a="Each inquiry is turned into a clear, pre-filled WhatsApp message you can send or copy — no waiting, no friction." />
-            <Faq q="Does it work well on mobile?" a="Yes. The experience is mobile-first, with sticky call and WhatsApp actions on small screens." />
+            <Faq q="Will you give me a fair price?" a="Yes. We diagnose first and give you a clear quote before any work starts — you approve before we begin, so there are no surprises." />
+            <Faq q="Do you use genuine parts?" a="We use quality and genuine spare parts, matched to your vehicle's brand — Toyota, Nissan, Hino, Isuzu, Mitsubishi and more." />
+            <Faq q="Can I talk to someone quickly?" a="Yes — WhatsApp is the fastest way to reach us. Send your vehicle details and problem and we'll respond with next steps." />
+            <Faq q="Do you service company and fleet vehicles?" a="Absolutely. We handle company cars, school vans, NGO and delivery fleets with scheduled servicing and priority turnaround." />
           </div>
         </div>
       </section>
 
       <section className="cta-banner">
         <div className="container cta-banner-inner">
-          <span className="eyebrow eyebrow-light">Start today</span>
-          <h2 className="mt-24">Ready to find your next vehicle or property?</h2>
-          <p className="lead mt-24">Browse the latest listings or send a direct inquiry — we&apos;ll follow up with clear next steps.</p>
+          <span className="eyebrow eyebrow-light">{site.tagline}</span>
+          <h2 className="mt-24">Bring your vehicle to people you can trust.</h2>
+          <p className="lead mt-24">{site.promise}</p>
           <div className="cta-row cta-center mt-36">
-            <Link className="btn btn-primary" href="/contact/#inquiry">Start an inquiry</Link>
-            <Link className="btn btn-outline-light" href="/auto-dealers/">Browse vehicles</Link>
+            <a className="btn btn-primary" href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
+            <Link className="btn btn-outline-light" href="/contact/">Visit / contact us</Link>
           </div>
         </div>
       </section>

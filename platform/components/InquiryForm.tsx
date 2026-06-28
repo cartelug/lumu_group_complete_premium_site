@@ -2,26 +2,14 @@
 
 import { useId, useState } from "react";
 import { whatsappLink } from "@/lib/site";
+import { services } from "@/lib/data";
 
 type Props = {
   title?: string;
-  reference?: string;
-  interestOptions?: string[];
+  service?: string;
 };
 
-const DEFAULT_INTERESTS = [
-  "Vehicle help",
-  "Property help",
-  "List property",
-  "Fleet sourcing",
-  "Investment guidance",
-];
-
-export default function InquiryForm({
-  title = "Lumu Group Inquiry",
-  reference,
-  interestOptions = DEFAULT_INTERESTS,
-}: Props) {
+export default function InquiryForm({ title = "Lumu Autodealers — Service Request", service }: Props) {
   const uid = useId();
   const [message, setMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -30,7 +18,6 @@ export default function InquiryForm({
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const lines = [title, ""];
-    if (reference) lines.push(`Listing: ${reference}`);
     fd.forEach((value, key) => {
       const v = String(value).trim();
       if (v) {
@@ -38,7 +25,7 @@ export default function InquiryForm({
         lines.push(`${label}: ${v}`);
       }
     });
-    lines.push("", "Please contact me with the next steps.");
+    lines.push("", "Please advise on availability and an estimate. Thank you.");
     setMessage(lines.join("\n"));
     setCopied(false);
   };
@@ -56,9 +43,6 @@ export default function InquiryForm({
 
   return (
     <form className="form-card reveal" onSubmit={onSubmit}>
-      {reference && (
-        <p className="kicker" style={{ marginBottom: 18 }}>Re: {reference}</p>
-      )}
       <div className="form-grid">
         <div className="field">
           <label htmlFor={`${uid}-name`}>Full name</label>
@@ -69,51 +53,57 @@ export default function InquiryForm({
           <input id={`${uid}-phone`} name="phone-number" required placeholder="e.g. +256..." />
         </div>
         <div className="field">
-          <label htmlFor={`${uid}-interest`}>Interest</label>
-          <select id={`${uid}-interest`} name="interest" required defaultValue="">
-            <option value="" disabled>Choose one</option>
-            {interestOptions.map((o) => (
-              <option key={o}>{o}</option>
+          <label htmlFor={`${uid}-vehicle`}>Vehicle (make &amp; model)</label>
+          <input id={`${uid}-vehicle`} name="vehicle" placeholder="e.g. Toyota Harrier, 2015" />
+        </div>
+        <div className="field">
+          <label htmlFor={`${uid}-service`}>Service needed</label>
+          <select id={`${uid}-service`} name="service" required defaultValue={service ?? ""}>
+            <option value="" disabled>Choose a service</option>
+            {services.map((s) => (
+              <option key={s.slug}>{s.title}</option>
             ))}
+            <option>Other / not sure</option>
           </select>
         </div>
         <div className="field">
-          <label htmlFor={`${uid}-budget`}>Budget / range</label>
-          <input id={`${uid}-budget`} name="budget" placeholder="Your preferred budget" />
-        </div>
-        <div className="field">
-          <label htmlFor={`${uid}-timeline`}>Timeline</label>
-          <select id={`${uid}-timeline`} name="timeline" defaultValue="Immediately">
-            <option>Immediately</option>
-            <option>This month</option>
-            <option>1–3 months</option>
-            <option>Still exploring</option>
+          <label htmlFor={`${uid}-when`}>Preferred time</label>
+          <select id={`${uid}-when`} name="preferred-time" defaultValue="As soon as possible">
+            <option>As soon as possible</option>
+            <option>Today</option>
+            <option>This week</option>
+            <option>Just need a quote</option>
           </select>
         </div>
         <div className="field">
-          <label htmlFor={`${uid}-pref`}>Preferred location / model</label>
-          <input id={`${uid}-pref`} name="preferred-location-or-model" placeholder="Area, property type, or vehicle model" />
+          <label htmlFor={`${uid}-location`}>Where is the vehicle?</label>
+          <input id={`${uid}-location`} name="vehicle-location" placeholder="At your workshop / my location" />
         </div>
         <div className="field full">
-          <label htmlFor={`${uid}-details`}>Extra details</label>
-          <textarea id={`${uid}-details`} name="extra-details" placeholder="Tell us what you want, what matters most, and any special requirements." />
+          <label htmlFor={`${uid}-details`}>Describe the problem</label>
+          <textarea id={`${uid}-details`} name="problem-details" placeholder="What's happening with the vehicle? Any warning lights, noises or symptoms?" />
         </div>
       </div>
       <div className="cta-row mt-24">
-        <button className="btn btn-primary" type="submit">Generate inquiry message</button>
+        <button className="btn btn-primary" type="submit">Send request</button>
         {message && (
           <a className="btn btn-soft" href={whatsappLink(message)} target="_blank" rel="noopener">Open WhatsApp</a>
         )}
       </div>
       {message && (
         <div className="mt-24">
-          <textarea readOnly value={message} aria-label="Generated inquiry message" style={{ width: "100%", minHeight: 150, borderRadius: 12, border: "1px solid var(--line-strong)", background: "var(--surface-2)", color: "var(--text)", padding: 14, fontFamily: "var(--ff)" }} />
+          <textarea
+            readOnly
+            value={message}
+            aria-label="Generated request message"
+            style={{ width: "100%", minHeight: 150, borderRadius: 12, border: "1px solid var(--line-strong)", background: "var(--surface-2)", color: "var(--text)", padding: 14, fontFamily: "var(--ff)" }}
+          />
           <div className="cta-row mt-24">
             <button className="btn btn-ghost" type="button" onClick={copy}>{copied ? "Copied ✓" : "Copy message"}</button>
           </div>
         </div>
       )}
-      <p className="form-note mt-24">This website does not store form data. It creates a polished message you can send through WhatsApp or copy.</p>
+      <p className="form-note mt-24">This sends your details as a ready WhatsApp message — nothing is stored on this website.</p>
     </form>
   );
 }

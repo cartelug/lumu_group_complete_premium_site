@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { asset } from "@/lib/site";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/auto-dealers/", label: "Auto Dealers" },
-  { href: "/real-estate/", label: "Real Estate" },
+  { href: "/services/", label: "Services" },
+  { href: "/fleet/", label: "Fleet" },
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
 ];
@@ -33,9 +32,9 @@ export default function SiteHeader() {
   return (
     <header className={`header${scrolled ? " scrolled" : ""}`}>
       <div className="container nav">
-        <Link className="brand" href="/" aria-label="Lumu Group of Companies home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset("/assets/images/logo-lumu.svg")} width={260} height={72} alt="Lumu Group of Companies" />
+        <Link className="brand" href="/" aria-label="Lumu Autodealers home">
+          <span className="brandmark" aria-hidden="true">L</span>
+          <span className="brandtext">Lumu <b>Autodealers</b><small>Built on Trust</small></span>
         </Link>
         <nav className={`nav-links${open ? " open" : ""}`} aria-label="Primary navigation">
           {links.map((l) => (
@@ -45,7 +44,7 @@ export default function SiteHeader() {
           ))}
         </nav>
         <div className="nav-actions">
-          <Link className="btn btn-soft" href="/contact/#inquiry">Start inquiry</Link>
+          <Link className="btn btn-soft" href="/contact/#book">Book a service</Link>
           <button
             className="menu-toggle"
             aria-label={open ? "Close menu" : "Open menu"}

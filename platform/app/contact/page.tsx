@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 import InquiryForm from "@/components/InquiryForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact Lumu Group for vehicle inquiries, property inquiries, listings, fleet sourcing and investment guidance.",
+  title: "Contact & Booking",
+  description: "Book a service or get a quote from Lumu Autodealers & Logistics Ltd, Busega – Masaka Road, Kampala. WhatsApp, call or send a request online.",
 };
+
+const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Lumu+Autodealers+Busega+Masaka+Road+Kampala";
 
 export default function ContactPage() {
   return (
@@ -15,9 +17,13 @@ export default function ContactPage() {
         <div className="container">
           <div className="reveal" style={{ maxWidth: 820 }}>
             <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Contact</span></div>
-            <span className="kicker">Contact Lumu Group</span>
-            <h1 className="mt-24">Start with a clear inquiry.</h1>
-            <p className="lead mt-24">Choose vehicle help, property help, listing support or investment guidance — the form turns your details into a professional WhatsApp-ready message.</p>
+            <span className="kicker">Contact &amp; booking</span>
+            <h1 className="mt-24">Book a service or get a quote.</h1>
+            <p className="lead mt-24">The fastest way to reach us is WhatsApp. Tell us your vehicle and the problem, and we&apos;ll reply with availability and an estimate.</p>
+            <div className="cta-row mt-36">
+              <a className="btn btn-primary" href={whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.")} target="_blank" rel="noopener">WhatsApp us</a>
+              <a className="btn btn-outline-light" href={`tel:${site.phone}`}>Call {site.phoneDisplay}</a>
+            </div>
           </div>
         </div>
       </section>
@@ -28,16 +34,20 @@ export default function ContactPage() {
             <div className="contact-card">
               <span className="kicker">Contact details</span>
               <h2 className="h3 mt-24">{site.name}</h2>
-              <p className="subtle">Placeholders below until official details are confirmed.</p>
+              <p className="subtle">{site.tagline} · Since {site.since}</p>
               <div className="divider" />
-              <p><b>Phone</b><br />{site.phoneDisplay}</p>
-              <p><b>WhatsApp</b><br />{site.phone}</p>
+              <p><b>Phone</b><br />{site.phoneDisplay}<br />{site.phone2Display}</p>
+              <p><b>WhatsApp</b><br />{site.phoneDisplay}</p>
               <p><b>Email</b><br />{site.email}</p>
-              <p><b>Location</b><br />{site.location}</p>
+              <p><b>Location</b><br />{site.addressLine}</p>
+              <p><b>Hours</b><br />{site.hours}</p>
+            </div>
+            <div className="map-card mt-24">
+              <div className="map-pin">📍 {site.location}<br /><a className="subtle" href={mapsUrl} target="_blank" rel="noopener" style={{ color: "var(--orange-300)" }}>Get directions →</a></div>
             </div>
           </aside>
-          <div id="inquiry">
-            <InquiryForm title="Lumu Group Contact Inquiry" />
+          <div id="book">
+            <InquiryForm title="Lumu Autodealers — Service Request" />
           </div>
         </div>
       </section>
