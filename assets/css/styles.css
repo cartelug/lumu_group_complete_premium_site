@@ -180,3 +180,5 @@ main{counter-reset:sec}.section,.section-tight{counter-increment:sec}.section>.c
 @media (max-width:860px){.to-top{bottom:84px;right:16px;width:44px;height:44px}}
 .error-page{min-height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(130% 90% at 50% -10%,#1c130c 0%,var(--bg) 62%)}
 .error-page .ecode{font-family:var(--ff-display);font-weight:700;font-size:clamp(6rem,22vw,15rem);line-height:.86;letter-spacing:-.04em;background:linear-gradient(180deg,#fff,var(--orange-400));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-photo .scroll-cue{color:#d8cdbf;margin-top:44px}
+.btn{letter-spacing:.01em}
