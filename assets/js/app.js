@@ -199,3 +199,13 @@ toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce
 const toggleToTop = () => toTop.classList.toggle('show', window.scrollY > 600);
 toggleToTop();
 window.addEventListener('scroll', toggleToTop, { passive: true });
+
+/* Associate each field label with its control for accessibility */
+$$('.field').forEach((field, i) => {
+  const label = $('label', field);
+  const control = $('input, select, textarea', field);
+  if (label && control && !label.htmlFor) {
+    if (!control.id) control.id = 'f-' + (control.name || 'field') + '-' + i;
+    label.htmlFor = control.id;
+  }
+});
