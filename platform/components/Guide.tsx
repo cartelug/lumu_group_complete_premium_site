@@ -40,7 +40,11 @@ export default function Guide() {
 
     const loop = () => {
       const t = pick();
-      if (t && t !== active) { active = t; t.classList.add("guide-look"); }
+      if (t && t !== active) {
+        if (active) active.classList.remove("guide-look");
+        active = t;
+        t.classList.add("guide-look");
+      }
       // Map the active heading's vertical position to a natural arm swing:
       // heading high in viewport -> arm points up; lower -> arm eases down.
       let goal = 0;
