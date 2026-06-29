@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const links = [
   { href: "/", label: "Home" },
@@ -33,8 +34,7 @@ export default function SiteHeader() {
     <header className={`header${scrolled ? " scrolled" : ""}`}>
       <div className="container nav">
         <Link className="brand" href="/" aria-label="Lumu Autodealers home">
-          <span className="brandmark" aria-hidden="true">L</span>
-          <span className="brandtext">Lumu <b>Autodealers</b><small>Built on Trust</small></span>
+          <Logo />
         </Link>
         <nav className={`nav-links${open ? " open" : ""}`} aria-label="Primary navigation">
           {links.map((l) => (

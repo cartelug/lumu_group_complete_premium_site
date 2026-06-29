@@ -4,6 +4,7 @@ import { site, whatsappLink } from "@/lib/site";
 import ServiceCard from "@/components/ServiceCard";
 import BrandStrip from "@/components/BrandStrip";
 import Faq from "@/components/Faq";
+import Icon from "@/components/Icon";
 
 const bookWhatsApp = whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.");
 
@@ -20,6 +21,12 @@ export default function Home() {
             <span className="kicker">Built on Trust · Since {site.since}</span>
             <h1 className="mt-24">Trusted automotive care <span className="orange">you can rely on.</span></h1>
             <p className="lead mt-24">Professional motor vehicle repairs, servicing, diagnostics, genuine spare parts and logistics in Kampala — honest work, fair quotes and fast turnaround for private cars and company fleets.</p>
+            <div className="hero-badges">
+              <span className="hero-badge"><Icon name="parts" />Genuine parts</span>
+              <span className="hero-badge"><Icon name="diagnostics" />Computerized diagnostics</span>
+              <span className="hero-badge"><Icon name="file" />Written quote first</span>
+              <span className="hero-badge"><Icon name="clock" />Fast turnaround</span>
+            </div>
             <div className="cta-row mt-36">
               <a className="btn btn-primary" href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
               <Link className="btn btn-outline-light" href="/services/">Our services</Link>
@@ -37,6 +44,11 @@ export default function Home() {
         <div className="container text-center reveal">
           <span className="eyebrow" style={{ justifyContent: "center" }}>Brands we service &amp; supply parts for</span>
           <div className="mt-36"><BrandStrip /></div>
+          <div className="assure mt-56" style={{ textAlign: "left" }}>
+            <div className="assure-item"><Icon name="file" /><div><b>A quote before we start</b><span>You approve the price first — no surprises.</span></div></div>
+            <div className="assure-item"><Icon name="shield" /><div><b>Genuine, quality parts</b><span>Brand-matched components you can trust.</span></div></div>
+            <div className="assure-item"><Icon name="check" /><div><b>Work done properly</b><span>By qualified technicians, finished right.</span></div></div>
+          </div>
         </div>
       </section>
 
@@ -63,10 +75,10 @@ export default function Home() {
             <p className="lead">We answer the question every car owner asks first — can I trust this garage with my vehicle?</p>
           </div>
           <div className="grid grid-4 mt-56">
-            <article className="card card-pad reveal"><span className="icon-pill">★</span><h3 className="mt-24">Expert technicians</h3><p className="subtle">Qualified, experienced mechanics with modern, computerized equipment.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">✓</span><h3 className="mt-24">Reliable service</h3><p className="subtle">Clear quotes before we start — no surprises, no overcharging.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">⚡</span><h3 className="mt-24">Fast turnaround</h3><p className="subtle">Quick diagnosis and efficient repairs to get you back on the road.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">♥</span><h3 className="mt-24">Customer satisfaction</h3><p className="subtle">Quality service, honest work and lasting relationships.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="wrench" /></span><h3 className="mt-24">Expert technicians</h3><p className="subtle">Qualified, experienced mechanics with modern, computerized equipment.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="shield" /></span><h3 className="mt-24">Reliable service</h3><p className="subtle">Clear quotes before we start — no surprises, no overcharging.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="clock" /></span><h3 className="mt-24">Fast turnaround</h3><p className="subtle">Quick diagnosis and efficient repairs to get you back on the road.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="star" /></span><h3 className="mt-24">Customer satisfaction</h3><p className="subtle">Quality service, honest work and lasting relationships.</p></article>
           </div>
         </div>
       </section>
@@ -83,10 +95,10 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-2">
-            <div className="card card-pad reveal"><span className="icon-pill">🚚</span><h3 className="mt-24">Service plans</h3><p className="subtle">Scheduled maintenance that prevents costly breakdowns.</p></div>
-            <div className="card card-pad reveal"><span className="icon-pill">⏱️</span><h3 className="mt-24">Priority turnaround</h3><p className="subtle">Less downtime for the vehicles your business depends on.</p></div>
-            <div className="card card-pad reveal"><span className="icon-pill">🧩</span><h3 className="mt-24">Genuine parts</h3><p className="subtle">Quality, brand-matched parts supplied and fitted.</p></div>
-            <div className="card card-pad reveal"><span className="icon-pill">📋</span><h3 className="mt-24">Simple reporting</h3><p className="subtle">Know what was done and what's due next.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="file" /></span><h3 className="mt-24">Service plans</h3><p className="subtle">Scheduled maintenance that prevents costly breakdowns.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="clock" /></span><h3 className="mt-24">Priority turnaround</h3><p className="subtle">Less downtime for the vehicles your business depends on.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="parts" /></span><h3 className="mt-24">Genuine parts</h3><p className="subtle">Quality, brand-matched parts supplied and fitted.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="check" /></span><h3 className="mt-24">Simple reporting</h3><p className="subtle">Know what was done and what&apos;s due next.</p></div>
           </div>
         </div>
       </section>

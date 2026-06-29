@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site, whatsappLink } from "@/lib/site";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "About",
@@ -36,10 +37,10 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="grid grid-2">
-            <article className="card card-pad reveal"><span className="icon-pill">🏆</span><h3 className="mt-24">Established 2018</h3><p className="subtle">A proven track record of dependable automotive care.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">💻</span><h3 className="mt-24">Modern equipment</h3><p className="subtle">Computerized diagnostics for accurate, faster repairs.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">👨‍🔧</span><h3 className="mt-24">Skilled technicians</h3><p className="subtle">Experienced mechanics who know your vehicle.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">🧩</span><h3 className="mt-24">Genuine parts</h3><p className="subtle">Quality, brand-matched parts you can rely on.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="star" /></span><h3 className="mt-24">Established 2018</h3><p className="subtle">A proven track record of dependable automotive care.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="diagnostics" /></span><h3 className="mt-24">Modern equipment</h3><p className="subtle">Computerized diagnostics for accurate, faster repairs.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="wrench" /></span><h3 className="mt-24">Skilled technicians</h3><p className="subtle">Experienced mechanics who know your vehicle.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="parts" /></span><h3 className="mt-24">Genuine parts</h3><p className="subtle">Quality, brand-matched parts you can rely on.</p></article>
           </div>
         </div>
       </section>

@@ -6,6 +6,7 @@ import { site, asset, brands } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
 import ScrollUI from "@/components/ScrollUI";
 import RevealManager from "@/components/RevealManager";
+import Logo from "@/components/Logo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
@@ -80,8 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="footer-grid">
               <div>
                 <Link className="brand" href="/" aria-label="Lumu Autodealers home">
-                  <span className="brandmark" aria-hidden="true">L</span>
-                  <span className="brandtext">Lumu <b>Autodealers</b><small>&amp; Logistics Ltd</small></span>
+                  <Logo sub="& Logistics Ltd" />
                 </Link>
                 <p className="mt-24">{site.promise}</p>
                 <div className="cta-row mt-24">

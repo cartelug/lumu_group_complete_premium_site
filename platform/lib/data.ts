@@ -13,7 +13,7 @@ export const services: Service[] = [
   {
     slug: "repairs-servicing",
     title: "Repairs & Servicing",
-    icon: "🔧",
+    icon: "wrench",
     category: "Repairs",
     short: "Mechanical repairs and scheduled servicing for all makes.",
     description:
@@ -24,7 +24,7 @@ export const services: Service[] = [
   {
     slug: "computerized-diagnostics",
     title: "Computerized Diagnostics",
-    icon: "💻",
+    icon: "diagnostics",
     category: "Diagnostics",
     short: "Accurate computer fault-finding with modern scan tools.",
     description:
@@ -35,7 +35,7 @@ export const services: Service[] = [
   {
     slug: "engine-tuning-fuel-injection",
     title: "Engine Tuning & Fuel Injection",
-    icon: "⚙️",
+    icon: "gear",
     category: "Repairs",
     short: "Tuning and fuel-injection service for smoother power and economy.",
     description:
@@ -46,7 +46,7 @@ export const services: Service[] = [
   {
     slug: "brakes-oil-tyres-battery-ac",
     title: "Brakes, Oil, Tyres, Battery & AC",
-    icon: "🛠️",
+    icon: "gauge",
     category: "Maintenance",
     short: "Everyday maintenance to keep you safe on the road.",
     description:
@@ -57,7 +57,7 @@ export const services: Service[] = [
   {
     slug: "panel-beating-spraying",
     title: "Panel Beating & Spraying",
-    icon: "🎨",
+    icon: "spray",
     category: "Bodywork",
     short: "Bodywork, dent repair and professional spray finishing.",
     description:
@@ -67,7 +67,7 @@ export const services: Service[] = [
   {
     slug: "genuine-spare-parts",
     title: "Genuine Spare Parts",
-    icon: "🧩",
+    icon: "parts",
     category: "Parts",
     short: "Quality and genuine spare parts for major brands.",
     description:
@@ -78,7 +78,7 @@ export const services: Service[] = [
   {
     slug: "generator-motorcycle-servicing",
     title: "Generator & Motorcycle Servicing",
-    icon: "🔌",
+    icon: "power",
     category: "Repairs",
     short: "Servicing and repair for generators and motorcycles.",
     description:
@@ -88,7 +88,7 @@ export const services: Service[] = [
   {
     slug: "fleet-logistics",
     title: "Fleet & Logistics Solutions",
-    icon: "🚚",
+    icon: "truck",
     category: "Fleet",
     short: "Service plans and logistics for company and fleet vehicles.",
     description:

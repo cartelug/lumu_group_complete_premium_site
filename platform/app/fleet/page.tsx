@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site, whatsappLink } from "@/lib/site";
 import InquiryForm from "@/components/InquiryForm";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Fleet & Logistics",
@@ -30,12 +31,12 @@ export default function FleetPage() {
       <section className="section">
         <div className="container">
           <div className="grid grid-3">
-            <article className="card card-pad reveal"><span className="icon-pill">📋</span><h3 className="mt-24">Scheduled servicing</h3><p className="subtle">Planned maintenance that prevents costly, unexpected breakdowns.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">⏱️</span><h3 className="mt-24">Priority turnaround</h3><p className="subtle">Your vehicles are a priority — minimal downtime, fast service.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">🧩</span><h3 className="mt-24">Genuine parts supply</h3><p className="subtle">Quality, brand-matched parts supplied and fitted for every unit.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">🚚</span><h3 className="mt-24">Logistics support</h3><p className="subtle">Practical logistics solutions to keep operations moving.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">💻</span><h3 className="mt-24">Computerized diagnostics</h3><p className="subtle">Accurate fault-finding so problems are fixed right the first time.</p></article>
-            <article className="card card-pad reveal"><span className="icon-pill">🤝</span><h3 className="mt-24">One trusted partner</h3><p className="subtle">A single, reliable garage for your whole fleet — built on trust.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="file" /></span><h3 className="mt-24">Scheduled servicing</h3><p className="subtle">Planned maintenance that prevents costly, unexpected breakdowns.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="clock" /></span><h3 className="mt-24">Priority turnaround</h3><p className="subtle">Your vehicles are a priority — minimal downtime, fast service.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="parts" /></span><h3 className="mt-24">Genuine parts supply</h3><p className="subtle">Quality, brand-matched parts supplied and fitted for every unit.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="truck" /></span><h3 className="mt-24">Logistics support</h3><p className="subtle">Practical logistics solutions to keep operations moving.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="diagnostics" /></span><h3 className="mt-24">Computerized diagnostics</h3><p className="subtle">Accurate fault-finding so problems are fixed right the first time.</p></article>
+            <article className="card card-pad reveal"><span className="icon-pill"><Icon name="handshake" /></span><h3 className="mt-24">One trusted partner</h3><p className="subtle">A single, reliable garage for your whole fleet — built on trust.</p></article>
           </div>
         </div>
       </section>

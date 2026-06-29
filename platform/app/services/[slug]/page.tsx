@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getService, getServices } from "@/lib/data";
 import { site, whatsappLink } from "@/lib/site";
 import InquiryForm from "@/components/InquiryForm";
+import Icon from "@/components/Icon";
 
 export function generateStaticParams() {
   return getServices().map((s) => ({ slug: s.slug }));
@@ -29,7 +30,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/services/">Services</Link><span>/</span><span>{s.title}</span></div>
         <div className="detail-grid mt-24">
           <div>
-            <span className="icon-pill" aria-hidden="true" style={{ fontSize: "1.6rem" }}>{s.icon}</span>
+            <span className="icon-pill" aria-hidden="true"><Icon name={s.icon} size={28} /></span>
             <h1 className="mt-24">{s.title}</h1>
             <p className="lead mt-24">{s.description}</p>
             <h3 className="mt-36">What&apos;s included</h3>
