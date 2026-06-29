@@ -1,6 +1,6 @@
 export const site = {
-  name: "Lumu Auto Dealers",
-  shortName: "Lumu",
+  name: "Lumu Autodealers & Logistics Ltd",
+  shortName: "Lumu Autodealers",
   phoneDisplay: "+256 782 017 381",
   phone: "+256782017381",
   phone2Display: "+256 782 493 499",
@@ -10,8 +10,8 @@ export const site = {
   location: "Busega – Masaka Road, Kampala",
   addressLine: "P.O. Box 72434, Kampala — Busega, Masaka Road",
   url: "https://www.lumuautodealers.com",
-  tagline: "Imported, inspected, registered.",
-  promise: "Every car here has paperwork you can inspect in person.",
+  tagline: "Built on Trust",
+  promise: "Quality Service. Honest Work. Lasting Relationships.",
   since: 2018,
   hours: "Mon – Sat, 8:00am – 6:00pm",
 };
