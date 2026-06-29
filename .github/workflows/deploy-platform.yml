@@ -1,8 +1,8 @@
-name: Deploy platform to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   # Pages Source is "GitHub Actions", so this workflow IS the deploy.
-  # Build + deploy the platform on every push to main.
+  # Publishes the framework-free static site in /static-site on every push to main.
   push:
     branches: [main]
   workflow_dispatch:
@@ -17,34 +17,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: platform
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: platform/package-lock.json
-      - run: npm ci
-      - name: Build static export
-        run: npm run build
-        env:
-          # Project-pages subpath. Set to "" if deploying to a root custom domain.
-          NEXT_PUBLIC_BASE_PATH: /lumu_group_complete_premium_site
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: platform/out
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: static-site
       - id: deployment
         uses: actions/deploy-pages@v4
