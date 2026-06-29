@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="680" viewBox="0 0 760 680" role="img" aria-labelledby="title desc">
-<title id="title">Lumu House illustration</title><desc id="desc">Premium orange house illustration used on the Lumu website.</desc>
-<defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9a1f"/><stop offset=".55" stop-color="#ff6a00"/><stop offset="1" stop-color="#bf4200"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#733000" flood-opacity=".15"/></filter></defs>
-<rect width="760" height="680" rx="44" fill="#fff7ed"/><g transform="translate(0 0)" fill="url(#o)" filter="url(#s)"><path d="M120 260 384 58l264 202v104L384 172 120 364V260Z"/><rect x="188" y="320" width="392" height="246" rx="26"/><rect x="338" y="420" width="92" height="146" rx="16" fill="#fff7ed"/><rect x="240" y="356" width="72" height="76" rx="14" fill="#fff7ed"/><rect x="456" y="356" width="72" height="76" rx="14" fill="#fff7ed"/></g>
-</svg>
