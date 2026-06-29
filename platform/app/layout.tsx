@@ -6,6 +6,7 @@ import { site, asset, brands, whatsappLink } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
 import ScrollUI from "@/components/ScrollUI";
 import RevealManager from "@/components/RevealManager";
+import Guide from "@/components/Guide";
 import Preloader from "@/components/Preloader";
 import Logo from "@/components/Logo";
 import Icon from "@/components/Icon";
@@ -129,6 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <ScrollUI />
         <RevealManager />
+        <Guide />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
