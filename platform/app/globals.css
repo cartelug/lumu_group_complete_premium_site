@@ -227,3 +227,56 @@ main{counter-reset:sec}.section,.section-tight{counter-increment:sec}.section>.c
 
 @media (max-width:980px){.home-hero-grid{grid-template-columns:1fr;gap:38px}.hero-media{margin-top:8px}.hero-float-a{top:-3%;left:0}.hero-float-b{bottom:-2%;right:0}}
 @media (max-width:560px){.hero-float{display:none}.hero-card{padding:22px}.home-hero-grid{gap:30px}}
+
+/* ===== section colour rhythm ===== */
+.section-soft{position:relative;background:linear-gradient(180deg,#ffffff 0%,var(--surface-2) 70%)}
+.section-soft:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+.section-feature{position:relative;overflow:hidden;background:radial-gradient(120% 92% at 85% -12%,#fff2e0 0%,var(--bg) 55%)}
+.section-feature:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--orange-300),transparent);opacity:.6}
+.section-feature .container{position:relative;z-index:1}
+
+/* ambient drifting orbs (decorative) */
+.amb{position:absolute;border-radius:50%;filter:blur(46px);opacity:.55;pointer-events:none;z-index:0}
+.amb-a{width:380px;height:380px;left:-120px;top:-90px;background:radial-gradient(circle,rgba(255,138,31,.30),transparent 70%);animation:ambFloat 15s ease-in-out infinite}
+.amb-b{width:320px;height:320px;right:-110px;bottom:-100px;background:radial-gradient(circle,rgba(221,147,38,.24),transparent 70%);animation:ambFloat 19s ease-in-out infinite reverse}
+@keyframes ambFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(32px,-28px)}}
+
+/* ===== directional reveal variants (reuse .in from RevealManager) ===== */
+.reveal-l{transform:translateX(-46px)}
+.reveal-r{transform:translateX(46px)}
+.reveal-scale{transform:scale(.92)}
+
+/* ===== animated eyebrow line draw ===== */
+@media (prefers-reduced-motion:no-preference){
+  .reveal .eyebrow:before{width:0;transition:width .6s var(--ease) .15s}
+  .reveal.in .eyebrow:before{width:28px}
+}
+
+/* ===== brand marquee ===== */
+.brand-marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.brand-track{display:flex;gap:12px;width:max-content;animation:marquee 30s linear infinite}
+.brand-marquee:hover .brand-track{animation-play-state:paused}
+.brand-track .brand-chip{flex:0 0 auto}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.brand-track{animation:none;flex-wrap:wrap;width:100%;justify-content:center}.brand-track .brand-chip[data-dup]{display:none}}
+
+/* ===== process connector line (scroll-drawn) ===== */
+@media (min-width:861px){
+  .process{position:relative}
+  .process:before{content:"";position:absolute;top:51px;left:13%;right:13%;height:2px;border-radius:99px;background:linear-gradient(90deg,var(--orange-300),var(--gold));transform:scaleX(0);transform-origin:left;z-index:0}
+}
+@supports (animation-timeline:view()){
+  @media (min-width:861px) and (prefers-reduced-motion:no-preference){
+    .process:before{animation:lineGrow linear both;animation-timeline:view();animation-range:cover 8% cover 60%}
+  }
+}
+@keyframes lineGrow{to{transform:scaleX(1)}}
+
+/* ===== micro-motion ===== */
+.icon-pill{transition:transform .35s var(--ease-spring),background .3s var(--ease),color .3s var(--ease)}
+.card:hover .icon-pill,.promise-card:hover .icon-pill,.service-card:hover .icon-pill{transform:translateY(-3px) rotate(-5deg)}
+@media (prefers-reduced-motion:no-preference){
+  .band:before{animation:ambFloat 22s ease-in-out infinite}
+  .cta-banner:before{animation:glowPulse 7s ease-in-out infinite}
+}
+@keyframes glowPulse{0%,100%{opacity:.85;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}

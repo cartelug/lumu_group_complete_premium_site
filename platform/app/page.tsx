@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-tight">
+      <section className="section-tight section-soft">
         <div className="container text-center reveal">
           <span className="eyebrow" style={{ justifyContent: "center" }}>Brands we service &amp; supply parts for</span>
           <div className="mt-36"><BrandStrip /></div>
@@ -85,7 +85,7 @@ export default function Home() {
       <section className="section" id="services">
         <div className="container">
           <div className="explorer-bar">
-            <div className="reveal">
+            <div className="reveal reveal-l">
               <span className="eyebrow">What we do</span>
               <h2 className="mt-24">Complete automotive services.</h2>
             </div>
@@ -99,7 +99,7 @@ export default function Home() {
 
       <section className="section band">
         <div className="container">
-          <div className="text-center narrow reveal">
+          <div className="text-center narrow reveal reveal-scale">
             <span className="eyebrow eyebrow-light">Why customers trust us</span>
             <h2 className="mt-24">Honest work, every time.</h2>
             <p className="lead">We answer the question every car owner asks first — can I trust this garage with my vehicle?</p>
@@ -113,9 +113,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-soft">
         <div className="container split">
-          <div className="reveal">
+          <div className="reveal reveal-l">
             <span className="eyebrow">For businesses</span>
             <h2 className="mt-24">Fleet &amp; company vehicle servicing.</h2>
             <p className="lead">Keep your business moving. We offer scheduled servicing, priority turnaround and logistics support for company cars, school vans, NGO and delivery fleets.</p>
@@ -148,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-tight">
+      <section className="section-tight section-soft">
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow" style={{ justifyContent: "center" }}>Our promise to you</span>
@@ -175,9 +175,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-feature">
+        <span className="amb amb-a" aria-hidden="true" />
+        <span className="amb amb-b" aria-hidden="true" />
         <div className="container split">
-          <div className="reveal">
+          <div className="reveal reveal-l">
             <span className="eyebrow">Also from Lumu</span>
             <h2 className="mt-24">Lumu Real Estate.</h2>
             <p className="lead">Beyond the workshop, Lumu helps you buy, rent, sell, list and invest in property — land, houses, apartments, rentals and commercial space — with the same honest, trusted approach.</p>
