@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Bricolage_Grotesque } from "next/font/google";
+import { Space_Grotesk, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { site, asset, brands } from "@/lib/site";
@@ -8,10 +8,10 @@ import ScrollUI from "@/components/ScrollUI";
 import RevealManager from "@/components/RevealManager";
 import Logo from "@/components/Logo";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
+const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const body = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
-export const viewport: Viewport = { themeColor: "#0a0807" };
+export const viewport: Viewport = { themeColor: "#fbf9f6" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -53,7 +53,7 @@ const jsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const year = new Date().getFullYear();
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
 
