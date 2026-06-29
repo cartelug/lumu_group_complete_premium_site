@@ -17,25 +17,55 @@ export default function Home() {
       <section className="hero-photo">
         <span className="hero-glow" aria-hidden="true" />
         <div className="container">
-          <div className="hero-copy reveal">
-            <span className="kicker">Built on Trust · Since {site.since}</span>
-            <h1 className="mt-24">Trusted automotive care <span className="orange">you can rely on.</span></h1>
-            <p className="lead mt-24">Professional motor vehicle repairs, servicing, diagnostics, genuine spare parts and logistics in Kampala — honest work, fair quotes and fast turnaround for private cars and company fleets.</p>
-            <div className="hero-badges">
-              <span className="hero-badge"><Icon name="parts" />Genuine parts</span>
-              <span className="hero-badge"><Icon name="diagnostics" />Computerized diagnostics</span>
-              <span className="hero-badge"><Icon name="file" />Written quote first</span>
-              <span className="hero-badge"><Icon name="clock" />Fast turnaround</span>
+          <div className="home-hero-grid">
+            <div className="hero-copy">
+              <span className="kicker hero-step">Built on Trust · Since {site.since}</span>
+              <h1 className="mt-24 hero-step">Trusted automotive care <span className="orange">you can rely on.</span></h1>
+              <p className="lead mt-24 hero-step">Professional motor vehicle repairs, servicing, diagnostics, genuine spare parts and logistics in Kampala — honest work, fair quotes and fast turnaround for private cars and company fleets.</p>
+              <div className="hero-badges hero-step">
+                <span className="hero-badge"><Icon name="parts" />Genuine parts</span>
+                <span className="hero-badge"><Icon name="diagnostics" />Computerized diagnostics</span>
+                <span className="hero-badge"><Icon name="file" />Written quote first</span>
+                <span className="hero-badge"><Icon name="clock" />Fast turnaround</span>
+              </div>
+              <div className="cta-row mt-36 hero-step">
+                <a className="btn btn-primary" data-magnetic href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
+                <Link className="btn btn-ghost" href="/services/">Our services</Link>
+              </div>
+              <div className="hero-metrics hero-step">
+                <div className="metric"><strong data-count={years} data-suffix="+">0</strong><span>Years of service</span></div>
+                <div className="metric"><strong data-count="6" data-suffix="+">0</strong><span>Brands serviced</span></div>
+                <div className="metric"><strong data-count="100" data-suffix="%">0</strong><span>Genuine parts</span></div>
+              </div>
             </div>
-            <div className="cta-row mt-36">
-              <a className="btn btn-primary" href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
-              <Link className="btn btn-outline-light" href="/services/">Our services</Link>
-            </div>
-            <div className="hero-metrics">
-              <div className="metric"><strong data-count={years} data-suffix="+">0</strong><span>Years of service</span></div>
-              <div className="metric"><strong data-count="6" data-suffix="+">0</strong><span>Brands serviced</span></div>
-              <div className="metric"><strong data-count="100" data-suffix="%">0</strong><span>Genuine parts</span></div>
-            </div>
+
+            <aside className="hero-media" aria-hidden="true">
+              <div className="hero-card">
+                <div className="hero-card-top">
+                  <svg className="hero-card-mark" viewBox="0 0 44 44">
+                    <defs><linearGradient id="heroMark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#ff8a1f" /><stop offset="1" stopColor="#c24e00" /></linearGradient></defs>
+                    <rect width="44" height="44" rx="12" fill="url(#heroMark)" />
+                    <path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#fff" />
+                  </svg>
+                  <div>
+                    <strong>Lumu Autodealers</strong>
+                    <span>Auto repairs · servicing · logistics</span>
+                  </div>
+                </div>
+                <span className="hero-card-status"><i />Open · {site.hours}</span>
+                <div className="hero-card-rows">
+                  <div className="hero-card-row"><Icon name="wrench" /> Repairs &amp; full servicing</div>
+                  <div className="hero-card-row"><Icon name="diagnostics" /> Computerized diagnostics</div>
+                  <div className="hero-card-row"><Icon name="parts" /> Genuine spare parts</div>
+                  <div className="hero-card-row"><Icon name="truck" /> Fleet &amp; logistics support</div>
+                </div>
+                <div className="hero-card-foot">
+                  <Icon name="pin" /> {site.location}
+                </div>
+              </div>
+              <span className="hero-float hero-float-a"><Icon name="shield" /> Quote first</span>
+              <span className="hero-float hero-float-b"><Icon name="check" /> Honest work</span>
+            </aside>
           </div>
         </div>
       </section>
@@ -118,6 +148,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-tight">
+        <div className="container">
+          <div className="text-center narrow reveal">
+            <span className="eyebrow" style={{ justifyContent: "center" }}>Our promise to you</span>
+            <h2 className="mt-24">What every customer can count on.</h2>
+            <p className="lead">Not testimonials — the commitments we stand behind on every vehicle that comes through our gate.</p>
+          </div>
+          <div className="grid grid-3 promise-grid mt-56">
+            <article className="promise-card reveal">
+              <span className="icon-pill"><Icon name="file" /></span>
+              <h3 className="mt-24">A quote before we start</h3>
+              <p className="subtle">We diagnose, explain the problem and give you a clear price. Nothing happens until you approve it.</p>
+            </article>
+            <article className="promise-card reveal">
+              <span className="icon-pill"><Icon name="parts" /></span>
+              <h3 className="mt-24">Genuine parts, fitted right</h3>
+              <p className="subtle">Quality, brand-matched components and qualified technicians — work finished properly the first time.</p>
+            </article>
+            <article className="promise-card reveal">
+              <span className="icon-pill"><Icon name="handshake" /></span>
+              <h3 className="mt-24">Honest, lasting relationships</h3>
+              <p className="subtle">We&apos;d rather earn your trust and keep you for years than win once. That&apos;s how Lumu works.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container split">
           <div className="reveal">
@@ -156,7 +213,7 @@ export default function Home() {
           <h2 className="mt-24">Bring your vehicle to people you can trust.</h2>
           <p className="lead mt-24">{site.promise}</p>
           <div className="cta-row cta-center mt-36">
-            <a className="btn btn-primary" href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
+            <a className="btn btn-primary" data-magnetic href={bookWhatsApp} target="_blank" rel="noopener">Book on WhatsApp</a>
             <Link className="btn btn-outline-light" href="/contact/">Visit / contact us</Link>
           </div>
         </div>

@@ -60,9 +60,39 @@ export default function RevealManager() {
     );
     counters.forEach((el) => countObs.observe(el));
 
+    // Magnetic CTA — pointer-following nudge on capable desktop pointers only.
+    const fine = window.matchMedia("(hover:hover) and (pointer:fine) and (min-width:861px)").matches;
+    const magnets: { el: HTMLElement; enter: () => void; move: (e: PointerEvent) => void; leave: () => void }[] = [];
+    if (fine) {
+      document.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((el) => {
+        const strength = 0.32;
+        const move = (e: PointerEvent) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - (r.left + r.width / 2)) * strength;
+          const y = (e.clientY - (r.top + r.height / 2)) * strength;
+          el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+        };
+        const enter = () => el.classList.add("is-magnetic");
+        const leave = () => {
+          el.classList.remove("is-magnetic");
+          el.style.transform = "";
+        };
+        el.addEventListener("pointerenter", enter);
+        el.addEventListener("pointermove", move);
+        el.addEventListener("pointerleave", leave);
+        magnets.push({ el, enter, move, leave });
+      });
+    }
+
     return () => {
       revealObs.disconnect();
       countObs.disconnect();
+      magnets.forEach(({ el, enter, move, leave }) => {
+        el.removeEventListener("pointerenter", enter);
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerleave", leave);
+        el.style.transform = "";
+      });
     };
   }, [pathname]);
 

@@ -2,11 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { site, asset, brands } from "@/lib/site";
+import { site, asset, brands, whatsappLink } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
 import ScrollUI from "@/components/ScrollUI";
 import RevealManager from "@/components/RevealManager";
+import Preloader from "@/components/Preloader";
 import Logo from "@/components/Logo";
+import Icon from "@/components/Icon";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const body = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -55,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <Preloader />
         <a className="skip-link" href="#main">Skip to content</a>
 
         <div className="topbar">
@@ -110,6 +113,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href={`tel:${site.phone}`}>Call</a>
           <a href={`https://wa.me/${site.whatsapp}`}>WhatsApp</a>
         </div>
+
+        <a
+          className="wa-fab"
+          href={whatsappLink("Hello Lumu Autodealers, I have a question.")}
+          target="_blank"
+          rel="noopener"
+          aria-label="Chat with Lumu Autodealers on WhatsApp"
+        >
+          <span className="wa-fab-ring" aria-hidden="true" />
+          <Icon name="chat" size={26} />
+          <span className="wa-fab-label">Chat with us</span>
+        </a>
 
         <ScrollUI />
         <RevealManager />

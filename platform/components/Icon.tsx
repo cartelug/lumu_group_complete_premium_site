@@ -92,6 +92,7 @@ const paths: Record<string, ReactNode> = {
       <path d="M5 19l4-7 3 4 2.5-3.5L20 19" />
     </>
   ),
+  chat: <path d="M4 11.5a7.5 7.5 0 1 1 3.4 6.3L4 19l1.2-3.4A7.4 7.4 0 0 1 4 11.5z" />,
 };
 
 type Props = { name: string; size?: number } & SVGProps<SVGSVGElement>;

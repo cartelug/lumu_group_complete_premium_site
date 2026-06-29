@@ -21,8 +21,8 @@ export default function ContactPage() {
             <h1 className="mt-24">Book a service or get a quote.</h1>
             <p className="lead mt-24">The fastest way to reach us is WhatsApp. Tell us your vehicle and the problem, and we&apos;ll reply with availability and an estimate.</p>
             <div className="cta-row mt-36">
-              <a className="btn btn-primary" href={whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.")} target="_blank" rel="noopener">WhatsApp us</a>
-              <a className="btn btn-outline-light" href={`tel:${site.phone}`}>Call {site.phoneDisplay}</a>
+              <a className="btn btn-primary" data-magnetic href={whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.")} target="_blank" rel="noopener">WhatsApp us</a>
+              <a className="btn btn-ghost" href={`tel:${site.phone}`}>Call {site.phoneDisplay}</a>
             </div>
           </div>
         </div>
