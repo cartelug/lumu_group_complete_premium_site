@@ -40,27 +40,34 @@ export default function Home() {
             </div>
 
             <aside className="hero-media" aria-hidden="true">
-              <div className="hero-card">
-                <div className="hero-card-top">
-                  <svg className="hero-card-mark" viewBox="0 0 44 44">
-                    <defs><linearGradient id="heroMark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#ff8a1f" /><stop offset="1" stopColor="#c24e00" /></linearGradient></defs>
-                    <rect width="44" height="44" rx="12" fill="url(#heroMark)" />
-                    <path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#fff" />
-                  </svg>
-                  <div>
-                    <strong>Lumu Autodealers</strong>
-                    <span>Auto repairs · servicing · logistics</span>
+              <div className="ticket">
+                <div className="ticket-head">
+                  <span className="ticket-tag">Service Ticket</span>
+                  <span className="ticket-ref">EST. {site.since}</span>
+                </div>
+                <div className="ticket-stripe" />
+                <div className="ticket-body">
+                  <div className="ticket-brand">
+                    <svg className="ticket-mark" viewBox="0 0 44 44">
+                      <defs><linearGradient id="heroMark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#ff8a1f" /><stop offset="1" stopColor="#c23a05" /></linearGradient></defs>
+                      <rect width="44" height="44" rx="11" fill="url(#heroMark)" />
+                      <path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#fff" />
+                    </svg>
+                    <div>
+                      <strong>Lumu Autodealers</strong>
+                      <span>Auto repairs · servicing · logistics</span>
+                    </div>
                   </div>
-                </div>
-                <span className="hero-card-status"><i />Open · {site.hours}</span>
-                <div className="hero-card-rows">
-                  <div className="hero-card-row"><Icon name="wrench" /> Repairs &amp; full servicing</div>
-                  <div className="hero-card-row"><Icon name="diagnostics" /> Computerized diagnostics</div>
-                  <div className="hero-card-row"><Icon name="parts" /> Genuine spare parts</div>
-                  <div className="hero-card-row"><Icon name="truck" /> Fleet &amp; logistics support</div>
-                </div>
-                <div className="hero-card-foot">
-                  <Icon name="pin" /> {site.location}
+                  <ul className="ticket-rows">
+                    <li><Icon name="wrench" /> Repairs &amp; full servicing <b>OK</b></li>
+                    <li><Icon name="diagnostics" /> Computerized diagnostics <b>OK</b></li>
+                    <li><Icon name="parts" /> Genuine spare parts <b>OK</b></li>
+                    <li><Icon name="truck" /> Fleet &amp; logistics <b>OK</b></li>
+                  </ul>
+                  <div className="ticket-foot">
+                    <span className="ticket-status"><i />Open · {site.hours}</span>
+                    <span className="ticket-stamp">Quote<br />First</span>
+                  </div>
                 </div>
               </div>
               <span className="hero-float hero-float-a"><Icon name="shield" /> Quote first</span>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Hanken_Grotesk } from "next/font/google";
+import { Archivo, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { site, asset, brands, whatsappLink } from "@/lib/site";
@@ -10,10 +10,11 @@ import Preloader from "@/components/Preloader";
 import Logo from "@/components/Logo";
 import Icon from "@/components/Icon";
 
-const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const display = Archivo({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const body = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"], display: "swap" });
 
-export const viewport: Viewport = { themeColor: "#fbf9f6" };
+export const viewport: Viewport = { themeColor: "#f5f5f2" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -55,7 +56,7 @@ const jsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const year = new Date().getFullYear();
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <Preloader />
         <a className="skip-link" href="#main">Skip to content</a>
