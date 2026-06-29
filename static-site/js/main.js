@@ -136,6 +136,17 @@
     });
   }
 
+  /* ---------- WhatsApp request forms ---------- */
+  [].slice.call(document.querySelectorAll("[data-wa-form]")).forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var lines = [];
+      new FormData(form).forEach(function (v, k) { if (String(v).trim()) lines.push(k + ": " + v); });
+      var title = form.getAttribute("data-wa-form") || "Lumu — Request";
+      window.open(WA + encodeURIComponent(title + "\n" + lines.join("\n")), "_blank", "noopener");
+    });
+  });
+
   /* ---------- Aisha — pointing guide ---------- */
   (function () {
     var arm = document.getElementById("guide-arm");

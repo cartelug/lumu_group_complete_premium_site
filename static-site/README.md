@@ -1,14 +1,25 @@
 # Lumu Autodealers — plain HTML / CSS / JS
 
-A framework-free, no-build version of the Lumu homepage. Just open the files.
+A framework-free, no-build version of the full Lumu site. Just open the files.
 
 ```
 static-site/
-├── index.html      ← all the markup (one page)
-├── css/styles.css  ← all styling (design tokens at the top)
-├── js/main.js      ← all behaviour (reveals, menu, FAQ, Aisha guide…)
+├── index.html          ← home
+├── services.html       ← all services
+├── fleet.html          ← fleet & logistics
+├── real-estate.html    ← Lumu Real Estate
+├── about.html          ← about
+├── contact.html        ← contact + WhatsApp request form
+├── css/styles.css      ← all styling (design tokens at the top)
+├── js/chrome.js        ← shared header / footer / guide (edit chrome here, once)
+├── js/main.js          ← all behaviour (reveals, menu, FAQ, form, Aisha guide…)
 └── README.md
 ```
+
+Each page is just its own `<main>` content; the header, footer, mobile bar,
+WhatsApp button and Aisha are injected on every page by `js/chrome.js`, so you
+edit the nav/footer/phone in **one** place. Nav, phone and address also live in
+`js/chrome.js`.
 
 ## Run it
 Open `index.html` in a browser, or serve the folder:
