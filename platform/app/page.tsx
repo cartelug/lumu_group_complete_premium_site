@@ -118,6 +118,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container split">
+          <div className="reveal">
+            <span className="eyebrow">Also from Lumu</span>
+            <h2 className="mt-24">Lumu Real Estate.</h2>
+            <p className="lead">Beyond the workshop, Lumu helps you buy, rent, sell, list and invest in property — land, houses, apartments, rentals and commercial space — with the same honest, trusted approach.</p>
+            <div className="cta-row mt-36"><Link className="btn btn-primary" href="/real-estate/">Explore Real Estate</Link></div>
+          </div>
+          <div className="grid grid-2">
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="land" /></span><h3 className="mt-24">Land</h3><p className="subtle">Titled residential, commercial and agricultural plots.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="home" /></span><h3 className="mt-24">Houses</h3><p className="subtle">Family homes, bungalows and villas.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="building" /></span><h3 className="mt-24">Apartments</h3><p className="subtle">For sale or rent, furnished options.</p></div>
+            <div className="card card-pad reveal"><span className="icon-pill"><Icon name="trending" /></span><h3 className="mt-24">Investment</h3><p className="subtle">Land banking and rental income.</p></div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-tight">
         <div className="container">
           <div className="text-center narrow reveal">

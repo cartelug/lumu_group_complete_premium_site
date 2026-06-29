@@ -72,6 +72,26 @@ const paths: Record<string, ReactNode> = {
     </>
   ),
   handshake: <path d="M3 12l4-4 4 3 2-2 4 2 4-3v8h-4l-3 3-3-3-4 1-4-2z" />,
+  home: <path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" />,
+  building: (
+    <>
+      <rect x="5" y="3" width="14" height="18" rx="1" />
+      <path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4" />
+    </>
+  ),
+  key: (
+    <>
+      <circle cx="8" cy="14" r="3.5" />
+      <path d="M10.5 11.5 19 3M16 4l3 3M14.5 5.5l2.5 2.5" />
+    </>
+  ),
+  trending: <path d="M3 17l6-6 4 4 7-7M15 8h6v6" />,
+  land: (
+    <>
+      <path d="M3 19h18" />
+      <path d="M5 19l4-7 3 4 2.5-3.5L20 19" />
+    </>
+  ),
 };
 
 type Props = { name: string; size?: number } & SVGProps<SVGSVGElement>;

@@ -7,10 +7,13 @@ import { services } from "@/lib/data";
 type Props = {
   title?: string;
   service?: string;
+  options?: string[];
+  serviceLabel?: string;
 };
 
-export default function InquiryForm({ title = "Lumu Autodealers — Service Request", service }: Props) {
+export default function InquiryForm({ title = "Lumu Autodealers — Service Request", service, options, serviceLabel }: Props) {
   const uid = useId();
+  const choices = options ?? services.map((s) => s.title);
   const [message, setMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -57,13 +60,13 @@ export default function InquiryForm({ title = "Lumu Autodealers — Service Requ
           <input id={`${uid}-vehicle`} name="vehicle" placeholder="e.g. Toyota Harrier, 2015" />
         </div>
         <div className="field">
-          <label htmlFor={`${uid}-service`}>Service needed</label>
+          <label htmlFor={`${uid}-service`}>{serviceLabel ?? "Service needed"}</label>
           <select id={`${uid}-service`} name="service" required defaultValue={service ?? ""}>
-            <option value="" disabled>Choose a service</option>
-            {services.map((s) => (
-              <option key={s.slug}>{s.title}</option>
+            <option value="" disabled>Choose one</option>
+            {choices.map((c) => (
+              <option key={c}>{c}</option>
             ))}
-            <option>Other / not sure</option>
+            {!options && <option>Other / not sure</option>}
           </select>
         </div>
         <div className="field">

@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
               <div><h3>Services</h3><Link href="/services/repairs-servicing/">Repairs &amp; Servicing</Link><Link href="/services/computerized-diagnostics/">Diagnostics</Link><Link href="/services/genuine-spare-parts/">Spare Parts</Link><Link href="/fleet/">Fleet &amp; Logistics</Link></div>
-              <div><h3>Company</h3><Link href="/about/">About Lumu</Link><Link href="/services/">All services</Link><Link href="/contact/">Contact</Link></div>
+              <div><h3>Company</h3><Link href="/about/">About Lumu</Link><Link href="/real-estate/">Real Estate</Link><Link href="/services/">All services</Link><Link href="/contact/">Contact</Link></div>
               <div>
                 <h3>Visit / Contact</h3>
                 <p className="subtle" style={{ margin: "10px 0" }}>{site.addressLine}</p>
