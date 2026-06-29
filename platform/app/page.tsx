@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import BrandStrip from "@/components/BrandStrip";
 import Faq from "@/components/Faq";
 import Icon from "@/components/Icon";
+import Divider from "@/components/Divider";
 
 const bookWhatsApp = whatsappLink("Hello Lumu Autodealers, I would like to book a service / get a quote.");
 
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-tight section-soft">
+      <section className="section-tight sec-white">
         <div className="container text-center reveal">
           <span className="eyebrow" style={{ justifyContent: "center" }}>Brands we service &amp; supply parts for</span>
           <div className="mt-36"><BrandStrip /></div>
@@ -89,7 +90,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="services">
+      <Divider variant="perf" label="Lumu" />
+
+      <section className="section sec-steel" id="services">
         <div className="container">
           <div className="explorer-bar">
             <div className="reveal reveal-l">
@@ -140,7 +143,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <Divider variant="gauge" label="Service" />
+
+      <section className="section sec-white">
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow">How it works</span>
@@ -155,7 +160,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-tight section-soft">
+      <Divider variant="perf" label="Promise" />
+
+      <section className="section-tight sec-steel">
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow" style={{ justifyContent: "center" }}>Our promise to you</span>
@@ -201,7 +208,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-tight">
+      <Divider variant="perf" label="FAQ" />
+
+      <section className="section-tight sec-white">
         <div className="container">
           <div className="text-center narrow reveal">
             <span className="eyebrow">Common questions</span>
@@ -215,6 +224,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Divider variant="hazard" />
 
       <section className="cta-banner">
         <div className="container cta-banner-inner">

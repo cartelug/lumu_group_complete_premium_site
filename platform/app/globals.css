@@ -173,6 +173,22 @@ main{counter-reset:sec}.section,.section-tight{counter-increment:sec}.section>.c
 @media (max-width:560px){.guide{width:90px;bottom:64px}}
 @media (prefers-reduced-motion:reduce){.guide__fig,.guide__eyes,.guide__ping{animation:none}.guide__arm{transition:none}}
 
+/* ===== section colour rhythm (cool family, distinct tones) ===== */
+.sec-white{background:#ffffff}
+.sec-steel{background:#e9ecef}
+.sec-mist{background:#eef1ee}
+.sec-white,.sec-steel,.sec-mist{position:relative}
+
+/* ===== premium section dividers (service-ticket tear / gauge / hazard) ===== */
+.seam{position:relative;width:100%;display:grid;place-items:center;background:transparent;height:clamp(38px,5.5vw,58px);z-index:2}
+.seam:before{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%)}
+.seam-perf:before{height:6px;background-image:radial-gradient(circle,var(--line-strong) 0 1.5px,transparent 2.1px);background-size:13px 6px;background-repeat:repeat-x;background-position:center}
+.seam-gauge:before{height:1px;background:linear-gradient(90deg,transparent,var(--line-strong) 16%,var(--line-strong) 84%,transparent)}
+.seam-chip{position:relative;z-index:1;background:var(--bg);padding:0 16px;display:inline-flex;align-items:center;gap:9px;font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-soft)}
+.seam-chip svg{width:15px;height:15px;color:var(--orange-500);flex:0 0 auto}
+.seam-hazard{height:clamp(12px,2.4vw,18px);width:100%;background:repeating-linear-gradient(45deg,var(--orange-500) 0 14px,var(--ink-dark) 14px 28px)}
+@media (max-width:560px){.seam-chip{font-size:.56rem;letter-spacing:.16em;padding:0 12px}}
+
 /* ===== preloader (server-rendered, pure-CSS fade) ===== */
 .preloader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:grid;place-items:center;pointer-events:none;animation:preHide .7s var(--ease) 1.45s forwards}
 .preloader-inner{display:flex;flex-direction:column;align-items:center;gap:18px;animation:prePop .8s var(--ease-spring) both}
