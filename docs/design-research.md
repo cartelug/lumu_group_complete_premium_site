@@ -1,28 +1,47 @@
-# Design Research Notes
+# Design Notes — "The Night Workshop"
 
-## Strategy
+The current site (`static-site/`) is a premium, framework-free rebuild of the
+Lumu Autodealers presence. It is a full company site, not a landing page: a
+homepage that establishes the brand, five interior pages, and a WhatsApp-first
+conversion path on every screen.
 
-The site is built as a full group-company presence, not a single landing page. The homepage introduces the parent brand and routes users into the two core divisions: Auto Dealers and Real Estate.
+## Direction
 
-## Research-informed decisions
-
-1. Mobile-first structure: the same primary content is available on mobile and desktop, with content reorganized into responsive sections rather than removed.
-2. Performance: custom SVG visuals are used because they are lightweight, scalable and crisp on mobile screens.
-3. Accessibility: the palette uses dark ink text on white and controlled orange accents to preserve legibility.
-4. Conversion: every major page includes a specific inquiry path and WhatsApp-ready message generation.
-5. Brand feel: white space, premium orange, strong Montserrat headings and a clean sans-serif body font create a modern, trustworthy identity.
+The brand is a Kampala garage whose single promise is *quote first — no
+surprises*. The design is built from the workshop's own world: a dark
+asphalt canvas lit by a molten-amber accent, industrial condensed display
+type, and a service-desk vernacular (numbered **bays**, a live **job card**,
+a **tachometer** hero).
 
 ## Visual system
 
-- Primary color: premium orange
-- Background: white and warm off-white
-- Text: deep ink/black
-- Typography: Montserrat for headings, Manrope for body
-- Visuals: generated SVG illustrations for auto, property, category cards, favicon and social preview
+- **Palette** — warm asphalt darks (`--night / --coal / --panel`) alternating
+  with workshop-paper lights (`--paper / --bone`); one molten-amber accent
+  (`--amber`), a darker ember for text/focus on light surfaces; manila for
+  job cards. Tokens live at the top of `css/styles.css`.
+- **Type** — Big Shoulders Display (industrial condensed headlines),
+  Instrument Sans (body), IBM Plex Mono (job-card data & labels). All
+  self-hosted as woff2 — zero third-party font requests.
+- **Signature** — *the ignition*: a one-per-session systems-check preloader,
+  then a hero tachometer whose needle sweeps to redline and settles at idle.
+- **Structure as information** — services are numbered bays (a real set), the
+  process is a five-step rail (a real sequence), the About timeline is an
+  ordered growth sequence (01–05, no fabricated dates).
+
+## Research-informed decisions
+
+1. Mobile-first: identical content on mobile and desktop, reorganised not
+   removed; a sticky Call / WhatsApp / Book bar replaces the FAB below 860px.
+2. Performance: self-hosted fonts + inline SVG icon sprite, no images, no
+   build step — fast on Ugandan mobile networks.
+3. Accessibility: content renders without JS (reveals are JS-gated),
+   reduced-motion respected, focus visible, eyebrow/focus contrast tuned for
+   light surfaces, decorative icons hidden from assistive tech.
+4. Conversion: every page ends in a WhatsApp-ready action; forms generate a
+   pre-filled message rather than posting to a server.
 
 ## Future improvements
 
-- Replace illustrations with real car and property photography where available.
-- Add real inventory and property listing data.
-- Connect form submissions to CRM, email or WhatsApp Business API.
-- Add testimonials, case studies and market insight articles.
+- Swap in real workshop and vehicle photography where available.
+- Connect the job-card and property forms to WhatsApp Business API or a CRM.
+- Add real inventory / property listings and customer stories once supplied.

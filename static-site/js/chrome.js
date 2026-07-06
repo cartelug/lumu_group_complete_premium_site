@@ -1,23 +1,36 @@
-/* Shared site chrome (sprite, topbar, header, footer, guide, etc.) injected on
-   every page so there is ONE place to edit it. Runs before main.js. */
+/* Shared site chrome — sprite, topbar, header, mobile menu, footer, fixed
+   helpers — injected on every page so there is ONE place to edit it.
+   Runs before main.js. Phone / address / nav all live here. */
 (function () {
   "use strict";
-  var page = (document.body.getAttribute("data-page") || "home");
+
+  var page = document.body.getAttribute("data-page") || "home";
+  var PHONE = "+256 782 017 381";
+  var PHONE2 = "+256 782 493 499";
+  var TEL = "tel:+256782017381";
+  var WA = "https://wa.me/256782017381?text=";
+  var EMAIL = "info@lumuautodealers.com";
+  var ADDRESS = "Busega, Masaka Road, Kampala";
 
   var NAV = [
-    ["index.html", "Home", "home"],
-    ["services.html", "Services", "services"],
-    ["fleet.html", "Fleet", "fleet"],
-    ["real-estate.html", "Real Estate", "real-estate"],
-    ["about.html", "About", "about"],
-    ["contact.html", "Contact", "contact"]
+    ["index.html", "Home", "home", "01"],
+    ["services.html", "Services", "services", "02"],
+    ["fleet.html", "Fleet", "fleet", "03"],
+    ["real-estate.html", "Real Estate", "real-estate", "04"],
+    ["about.html", "About", "about", "05"],
+    ["contact.html", "Contact", "contact", "06"]
   ];
+
   var navHtml = NAV.map(function (n) {
-    return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active"' : "") + ">" + n[1] + "</a>";
+    return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>";
+  }).join("");
+
+  var mmHtml = NAV.map(function (n, idx) {
+    return '<a class="mm-link' + (n[2] === page ? " active" : "") + '"' + (n[2] === page ? ' aria-current="page"' : "") + ' style="--d:' + (0.06 + idx * 0.05).toFixed(2) + 's" href="' + n[0] + '"><i>' + n[3] + "</i>" + n[1] + "</a>";
   }).join("");
 
   var logo = function (id, sub) {
-    return '<svg class="logo-mark" viewBox="0 0 44 44"><defs><linearGradient id="' + id + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#c24e00"/></linearGradient></defs><rect width="44" height="44" rx="12" fill="url(#' + id + ')"/><path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#fff"/></svg>' +
+    return '<svg class="logo-mark" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="' + id + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa02e"/><stop offset="1" stop-color="#c9480a"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#' + id + ')"/><path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#170b02"/></svg>' +
       '<span class="brandtext">Lumu <b>Autodealers</b><small>' + sub + "</small></span>";
   };
 
@@ -27,9 +40,8 @@
     '<symbol id="ic-diagnostics" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 11l2-2 2 3 2-4 2 3h1"/></symbol>' +
     '<symbol id="ic-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7 5.6 5.6"/></symbol>' +
     '<symbol id="ic-gauge" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0"/><circle cx="12" cy="14" r="1.6"/><path d="M12 13l3.4-3.4"/></symbol>' +
-    '<symbol id="ic-spray" viewBox="0 0 24 24"><rect x="8.5" y="9" width="7" height="12" rx="2"/><path d="M10.5 9V6a1.5 1.5 0 0 1 1.5-1.5A1.5 1.5 0 0 1 13.5 6v3"/><path d="M17 5h2M17 8h2M18.5 3v.5M18.5 9.5v.5"/></symbol>' +
     '<symbol id="ic-parts" viewBox="0 0 24 24"><path d="M12 2.5l8 4.6v9.8L12 21.5 4 16.9V7.1z"/><circle cx="12" cy="12" r="3.2"/></symbol>' +
-    '<symbol id="ic-power" viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8z"/></symbol>' +
+    '<symbol id="ic-battery" viewBox="0 0 24 24"><rect x="2.5" y="8" width="17" height="10" rx="2"/><path d="M19.5 11h2v4h-2M6.5 13h4M8.5 11v4M13.5 13h3"/></symbol>' +
     '<symbol id="ic-truck" viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="11" height="9" rx="1"/><path d="M13.5 9.5H17l3.5 3.5v2.5h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>' +
     '<symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 3.2l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.5 6.9 19.2l1-5.8L3.6 9.3l5.8-.8z"/></symbol>' +
     '<symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>' +
@@ -45,49 +57,46 @@
     '<symbol id="ic-trending" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7M15 8h6v6"/></symbol>' +
     '<symbol id="ic-land" viewBox="0 0 24 24"><path d="M3 19h18"/><path d="M5 19l4-7 3 4 2.5-3.5L20 19"/></symbol>' +
     '<symbol id="ic-chat" viewBox="0 0 24 24"><path d="M4 11.5a7.5 7.5 0 1 1 3.4 6.3L4 19l1.2-3.4A7.4 7.4 0 0 1 4 11.5z"/></symbol>' +
+    '<symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>' +
     "</svg>";
 
   var top =
     sprite +
     '<div class="preloader" aria-hidden="true"><div class="preloader-inner">' +
-    '<svg class="preloader-mark" viewBox="0 0 44 44"><defs><linearGradient id="pre" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#c23a05"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#pre)"/><path d="M28 14.5a4.7 4.7 0 0 0-6.2 6.1l-7.4 7.4a1.75 1.75 0 0 0 2.5 2.5l7.4-7.4a4.7 4.7 0 0 0 6.1-6.2l-2.8 2.8-2.4-2.4 2.8-2.8z" fill="#fff"/></svg>' +
-    '<span class="preloader-word">Lumu <b>Autodealers</b></span><span class="preloader-bar"><i></i></span></div></div>' +
+    '<div class="pre-lamps"><span class="pre-lamp">Oil</span><span class="pre-lamp">Batt</span><span class="pre-lamp">Brakes</span><span class="pre-lamp">Trust</span></div>' +
+    '<span class="preloader-word">Lumu <b>Autodealers</b></span>' +
+    '<span class="preloader-bar"><i></i></span></div></div>' +
     '<a class="skip-link" href="#main">Skip to content</a>' +
     '<div class="topbar"><div class="container topbar-row">' +
-    '<div class="topbar-contact"><a href="tel:+256782017381">+256 782 017 381</a><span class="topbar-sep"></span><a href="mailto:info@lumuautodealers.com">info@lumuautodealers.com</a></div>' +
-    '<div class="topbar-meta"><span>Busega – Masaka Road, Kampala</span><span class="topbar-sep"></span><span>Mon – Sat, 8:00am – 6:00pm</span></div></div></div>' +
+    '<div class="topbar-contact"><a href="' + TEL + '">' + PHONE + '</a><span class="topbar-sep"></span><a href="mailto:' + EMAIL + '">' + EMAIL + "</a></div>" +
+    '<div class="topbar-meta"><span>' + ADDRESS + '</span><span class="topbar-sep"></span><span>Mon – Sat · 8:00 – 18:00</span></div></div></div>' +
     '<header class="header"><div class="container nav">' +
-    '<a class="brand" href="index.html" aria-label="Lumu Autodealers home">' + logo("lm", "Built on Trust") + "</a>" +
-    '<nav class="nav-links" aria-label="Primary navigation">' + navHtml + "</nav>" +
-    '<div class="nav-actions"><a class="btn btn-soft" href="contact.html#book">Book a service</a>' +
-    '<button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>' +
-    "</div></header>";
+    '<a class="brand" href="index.html" aria-label="Lumu Autodealers home">' + logo("lm", "& Logistics Ltd") + "</a>" +
+    '<nav class="nav-links" aria-label="Primary">' + navHtml + "</nav>" +
+    '<div class="nav-actions"><a class="btn btn-primary" href="contact.html#book">Book a service</a>' +
+    '<button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button></div>' +
+    "</div></header>" +
+    '<div class="mobile-menu" id="mobile-menu"><nav aria-label="Mobile">' + mmHtml + "</nav>" +
+    '<div class="mm-foot"><a href="' + TEL + '">' + PHONE + '</a><a href="mailto:' + EMAIL + '">' + EMAIL + "</a><span>" + ADDRESS + "</span></div></div>";
 
+  var year = new Date().getFullYear();
   var bottom =
     '<footer class="footer"><div class="container"><div class="footer-grid">' +
-    '<div><a class="brand" href="index.html" aria-label="Lumu Autodealers home">' + logo("lf", "&amp; Logistics Ltd") + "</a>" +
-    '<p class="mt-24">Quality service. Honest work. Lasting relationships.</p>' +
-    '<div class="cta-row mt-24"><a class="btn btn-primary" href="contact.html#book">Book a service</a><a class="btn btn-ghost" href="tel:+256782017381">Call us</a></div></div>' +
-    '<div><h3>Services</h3><a href="services.html">Repairs &amp; Servicing</a><a href="services.html">Diagnostics</a><a href="services.html">Spare Parts</a><a href="fleet.html">Fleet &amp; Logistics</a></div>' +
-    '<div><h3>Company</h3><a href="about.html">About Lumu</a><a href="real-estate.html">Real Estate</a><a href="services.html">All services</a><a href="contact.html">Contact</a></div>' +
-    '<div><h3>Visit / Contact</h3><p class="subtle" style="margin:10px 0">P.O. Box 72434, Kampala — Busega, Masaka Road</p><a href="tel:+256782017381">+256 782 017 381</a><a href="tel:+256782493499">+256 782 493 499</a><a href="mailto:info@lumuautodealers.com">info@lumuautodealers.com</a></div>' +
-    '</div><div class="bottom"><span>© <span id="year"></span> Lumu Autodealers &amp; Logistics Ltd. All rights reserved.</span><span>Built on Trust.</span></div></div></footer>' +
-    '<div class="mobile-actions"><a href="tel:+256782017381">Call</a><a href="https://wa.me/256782017381" target="_blank" rel="noopener">WhatsApp</a></div>' +
-    '<a class="wa-fab" href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with Lumu Autodealers on WhatsApp"><span class="wa-fab-ring" aria-hidden="true"></span><svg class="ic"><use href="#ic-chat"/></svg><span class="wa-fab-label">Chat with us</span></a>' +
-    '<div class="scroll-progress" id="scroll-progress"></div><button class="to-top" id="to-top" aria-label="Back to top">↑</button>' +
-    '<div class="guide" aria-hidden="true"><svg viewBox="0 0 220 250" class="guide__svg"><g class="guide__fig">' +
-    '<ellipse cx="110" cy="56" rx="44" ry="36" fill="#1d1712"/><circle cx="70" cy="74" r="16" fill="#1d1712"/><circle cx="150" cy="74" r="16" fill="#1d1712"/>' +
-    '<circle cx="110" cy="76" r="33" fill="#7c5234"/><path d="M79 60 Q110 40 141 60 Q126 54 110 55 Q94 54 79 60Z" fill="#1d1712"/>' +
-    '<g class="guide__eyes"><circle cx="98" cy="78" r="3.6" fill="#16110b"/><circle cx="122" cy="78" r="3.6" fill="#16110b"/></g>' +
-    '<path d="M91 70 Q98 66 104 70" stroke="#16110b" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M116 70 Q122 66 129 70" stroke="#16110b" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
-    '<path d="M99 92 Q110 101 121 92" stroke="#3a241a" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="100" y="103" width="20" height="18" rx="8" fill="#7c5234"/>' +
-    '<path d="M52 250 L52 154 Q52 124 88 118 L132 118 Q168 124 168 154 L168 250 Z" fill="#2b3038"/><path d="M88 118 L110 146 L132 118 L122 116 L110 132 L98 116 Z" fill="#3a414a"/>' +
-    '<line x1="110" y1="146" x2="110" y2="250" stroke="#3a414a" stroke-width="3"/><rect x="92" y="158" width="34" height="14" rx="3" fill="#ff5a1f"/>' +
-    '<text x="109" y="168" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#fff">LUMU</text>' +
-    '<path d="M70 132 Q50 168 52 206" stroke="#2b3038" stroke-width="22" fill="none" stroke-linecap="round"/><circle cx="52" cy="208" r="12" fill="#7c5234"/>' +
-    '<rect x="40" y="196" width="9" height="30" rx="4" transform="rotate(34 44 211)" fill="#9aa0a6"/><circle cx="40" cy="198" r="6" fill="none" stroke="#9aa0a6" stroke-width="4"/>' +
-    '<g class="guide__arm" id="guide-arm"><path d="M150 130 Q172 112 188 92" stroke="#2b3038" stroke-width="20" fill="none" stroke-linecap="round"/><circle cx="190" cy="90" r="11" fill="#7c5234"/><rect x="186" y="64" width="9" height="28" rx="4.5" transform="rotate(34 190 78)" fill="#7c5234"/><circle class="guide__ping" cx="206" cy="62" r="4" fill="#ff5a1f"/></g>' +
-    "</g></svg></div>";
+    '<div><a class="brand" href="index.html" aria-label="Lumu Autodealers home">' + logo("lf", "Built on Trust") + "</a>" +
+    '<p class="mt-24">Quality service. Honest work. Lasting relationships. Motor vehicle repairs, servicing, diagnostics, genuine parts and logistics in Kampala since 2018.</p>' +
+    '<div class="cta-row mt-24"><a class="btn btn-primary" href="contact.html#book">Book a service</a></div></div>' +
+    '<div class="f-col"><h3>Workshop</h3><a href="services.html">All services</a><a href="services.html#bay-1">Repairs &amp; servicing</a><a href="services.html#bay-2">Diagnostics</a><a href="services.html#bay-5">Spare parts</a><a href="fleet.html">Fleet &amp; logistics</a></div>' +
+    '<div class="f-col"><h3>Company</h3><a href="about.html">About Lumu</a><a href="real-estate.html">Lumu Real Estate</a><a href="contact.html">Contact</a><a href="contact.html#book">Open a job card</a></div>' +
+    '<div class="f-col f-contact"><h3>Find us</h3><p class="mono" style="font-size:.8rem;line-height:2">P.O. Box 72434, Kampala<br>' + ADDRESS + "</p>" +
+    '<a href="' + TEL + '">' + PHONE + '</a><a href="tel:+256782493499">' + PHONE2 + '</a><a href="mailto:' + EMAIL + '">' + EMAIL + "</a></div>" +
+    '</div><div class="bottom"><span>© ' + year + " Lumu Autodealers &amp; Logistics Ltd</span><span>Built on Trust</span></div>" +
+    '<div class="f-word" aria-hidden="true">Lumu <b>Autodealers</b></div></div></footer>' +
+    '<div class="mobile-actions"><a href="' + TEL + '"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg>Call</a>' +
+    '<a href="' + WA + encodeURIComponent("Hello Lumu Autodealers, I have a question.") + '" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>WhatsApp</a>' +
+    '<a class="primary" href="contact.html#book"><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg>Book</a></div>' +
+    '<a class="wa-fab" href="' + WA + encodeURIComponent("Hello Lumu Autodealers, I have a question.") + '" target="_blank" rel="noopener" aria-label="Chat with Lumu Autodealers on WhatsApp"><span class="wa-fab-ring" aria-hidden="true"></span><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg></a>' +
+    '<div class="scroll-progress" id="scroll-progress"></div>' +
+    '<button class="to-top" id="to-top" aria-label="Back to top">↑</button>';
 
   document.body.insertAdjacentHTML("afterbegin", top);
   document.body.insertAdjacentHTML("beforeend", bottom);

@@ -1,43 +1,33 @@
-# Lumu Group of Companies — One-Month Final Website Build
+# Lumu Autodealers & Logistics Ltd — Premium Website
 
-This package is a polished static website for **Lumu Group of Companies** with two major divisions:
+Website for **Lumu Autodealers & Logistics Ltd** (Busega, Masaka Road,
+Kampala — est. 2018, *Built on Trust*): motor vehicle repairs, servicing,
+computerized diagnostics, genuine spare parts, fleet & logistics, plus the
+**Lumu Real Estate** division.
 
-- **Lumu Auto Dealers** — vehicle sales, car importation, trade-ins, fleet sourcing, documentation support and after-sales guidance.
-- **Lumu Real Estate** — land, houses, rentals, apartments, commercial property, property listing and investment guidance.
+## What's in this repo
 
-## Files
+| Path | What it is |
+| --- | --- |
+| **`static-site/`** | **The live site.** Framework-free HTML/CSS/JS — "The Night Workshop" design: ignition preloader, hero tachometer, service bays, job-card contact form. Deployed to GitHub Pages on every push to `main`. |
+| `platform/` | An earlier Next.js build of the group site (kept for reference). |
+| `docs/` | Design research and content-map notes. |
+| `.github/workflows/deploy-platform.yml` | GitHub Pages deploy — publishes `static-site/`. |
 
-- `index.html` — premium homepage
-- `auto-dealers.html` — full auto division page
-- `real-estate.html` — full real estate division page
-- `about.html` — company positioning page
-- `contact.html` — contact and inquiry page
-- `assets/css/styles.css` — white + premium orange design system
-- `assets/js/app.js` — navigation, filters, FAQ and WhatsApp message generator
-- `assets/images/` — custom generated SVG illustrations and brand assets
-- `manifest.webmanifest`, `robots.txt`, `sitemap.xml` — launch and SEO support
-- `docs/` — design research and content map
-
-## Replace before launch
-
-Search and replace these placeholders:
-
-- Phone: `+256 700 000 000`
-- WhatsApp: `+256700000000`
-- Email: `info@lumugroup.com`
-- Location: `Kampala, Uganda`
-- Domain in sitemap/robots: `https://www.lumugroup.com`
-
-## How to run locally
-
-Open `index.html` in your browser, or run a local static server:
+## Quick start
 
 ```bash
-python3 -m http.server 8080
+cd static-site
+python3 -m http.server 8080     # → http://localhost:8080
 ```
 
-Then visit `http://localhost:8080`.
+No build step. See `static-site/README.md` for the design system and how to
+edit content, phone numbers and colours.
 
-## Notes
+## Before launch
 
-The forms are static and do not save data. They generate a WhatsApp-ready inquiry message. For production, connect the forms to email, WhatsApp Business API, a CRM, or Google Sheets.
+- Confirm the phone numbers (`+256 782 017 381` / `+256 782 493 499`) and
+  email (`info@lumuautodealers.com`) in `static-site/js/chrome.js`.
+- Point the domain in `sitemap.xml`, `robots.txt` and each page's canonical
+  tag at the real production URL.
+- Forms are WhatsApp-first by design — no backend required.

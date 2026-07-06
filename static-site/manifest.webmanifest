@@ -1,0 +1,12 @@
+{
+  "name": "Lumu Autodealers & Logistics Ltd",
+  "short_name": "Lumu",
+  "description": "Auto repairs, servicing, diagnostics, genuine parts and fleet logistics in Kampala. Built on Trust.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0c0a08",
+  "theme_color": "#0c0a08",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

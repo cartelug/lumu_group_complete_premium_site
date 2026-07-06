@@ -3,79 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Contact &amp; Booking | Lumu Autodealers &amp; Logistics Ltd</title>
-  <meta name="description" content="Book a service or get a quote from Lumu Autodealers & Logistics Ltd, Busega – Masaka Road, Kampala. WhatsApp, call or send a request." />
-  <meta name="theme-color" content="#f5f5f2" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&family=Hanken+Grotesk:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Contact — Open a Job Card | Lumu Autodealers &amp; Logistics Ltd, Busega, Kampala</title>
+  <meta name="description" content="Contact Lumu Autodealers & Logistics Ltd in Busega, Masaka Road, Kampala. Open a job card on WhatsApp, call +256 782 017 381 or visit the workshop — written quote before any work begins." />
+  <meta name="theme-color" content="#0c0a08" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="canonical" href="https://www.lumuautodealers.com/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Open a Job Card — Contact Lumu Autodealers" />
+  <meta property="og:description" content="Tell us the vehicle and the problem. We reply on WhatsApp with next steps and a written quote before any work begins." />
+  <meta property="og:image" content="https://www.lumuautodealers.com/assets/og.png" />
+  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Lumu Autodealers & Logistics Ltd",
+    "url": "https://www.lumuautodealers.com/contact.html",
+    "about": {
+      "@type": "AutoRepair",
+      "name": "Lumu Autodealers & Logistics Ltd",
+      "telephone": "+256782017381",
+      "email": "info@lumuautodealers.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Busega, Masaka Road",
+        "addressLocality": "Kampala",
+        "addressCountry": "UG",
+        "postOfficeBoxNumber": "72434"
+      }
+    }
+  }
+  </script>
 </head>
 <body data-page="contact">
   <main id="main">
+
+    <!-- ============ PAGE HERO ============ -->
     <section class="page-hero">
       <div class="container">
-        <div class="reveal" style="max-width:840px">
-          <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
-          <span class="kicker">Contact &amp; booking</span>
-          <h1 class="mt-24">Book a service or get a quote.</h1>
-          <p class="lead mt-24">The fastest way to reach us is WhatsApp. Tell us your vehicle and the problem, and we'll reply with availability and an estimate.</p>
-          <div class="cta-row mt-36">
-            <a class="btn btn-primary" data-magnetic href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%20would%20like%20to%20book%20a%20service%20%2F%20get%20a%20quote." target="_blank" rel="noopener">WhatsApp us</a>
-            <a class="btn btn-ghost" href="tel:+256782017381">Call +256 782 017 381</a>
+        <nav class="crumbs reveal" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span><span>Contact</span>
+        </nav>
+        <span class="eyebrow reveal" style="--d:.06s">Talk to the workshop</span>
+        <h1 class="mt-24 reveal" style="--d:.12s">Open a <span class="orange">job card.</span></h1>
+        <p class="lead mt-24 reveal" style="--d:.18s">Tell us the vehicle and the problem — we reply on WhatsApp with next steps and a written quote before any work begins.</p>
+        <div class="stat-strip reveal" style="--d:.24s">
+          <div class="stat-chip"><b>Working hours</b><span>Reply</span></div>
+          <div class="stat-chip"><b>Written first</b><span>Quote</span></div>
+          <div class="stat-chip"><b>Busega, Masaka Rd</b><span>Visit</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE JOB CARD BUILDER ============ -->
+    <section class="section sec-paper" id="book">
+      <div class="container">
+        <div class="sec-head">
+          <div class="reveal-l">
+            <span class="eyebrow">Book a service</span>
+            <h2 class="mt-16">The job card builder.</h2>
+            <p class="lead mt-24">Fill in the form and watch your job card write itself. Press send and the whole card lands in our WhatsApp — ready for the workshop.</p>
+          </div>
+        </div>
+        <div class="split mt-56">
+          <form class="form-grid reveal-l" data-wa-form="Job card request">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="Name" data-jc="name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="Phone" type="tel" data-jc="phone" autocomplete="tel" required />
+            </div>
+            <div class="field">
+              <label for="f-vehicle">Vehicle (make &amp; model)</label>
+              <input id="f-vehicle" name="Vehicle" data-jc="vehicle" placeholder="e.g. Toyota Hiace 2014" />
+            </div>
+            <div class="field">
+              <label for="f-plate">Plate (optional)</label>
+              <input id="f-plate" name="Plate" data-jc="plate" placeholder="UBA 000A" />
+            </div>
+            <div class="field full">
+              <label for="f-service">Service needed</label>
+              <select id="f-service" name="Service" data-jc="service" required>
+                <option value="" disabled selected>Choose a service</option>
+                <option>Repairs &amp; servicing</option>
+                <option>Computerized diagnostics</option>
+                <option>Engine tuning &amp; fuel injection</option>
+                <option>Brakes, tyres, battery &amp; AC</option>
+                <option>Genuine spare parts</option>
+                <option>Fleet &amp; logistics</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-problem">What is the car doing?</label>
+              <textarea id="f-problem" name="Problem" data-jc="problem" placeholder="e.g. Losing power uphill, warning light on since Tuesday…"></textarea>
+            </div>
+            <div class="field full">
+              <p class="form-note"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg>Opens in WhatsApp — nothing is stored on this site.</p>
+              <div class="cta-row mt-8">
+                <button class="btn btn-dark" type="submit"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Send the job card</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="reveal-r">
+            <div class="jobcard tilt">
+              <div class="jc-head"><b>Job card</b><span class="jc-ref">LUMU · NEW REQUEST</span></div>
+              <div class="jc-rows">
+                <div class="jc-row"><span>Customer</span><b data-jc-out="name"></b></div>
+                <div class="jc-row"><span>Phone</span><b data-jc-out="phone"></b></div>
+                <div class="jc-row"><span>Vehicle</span><b data-jc-out="vehicle"></b></div>
+                <div class="jc-row"><span>Plate</span><b data-jc-out="plate"></b></div>
+                <div class="jc-row"><span>Service</span><b data-jc-out="service"></b></div>
+                <div class="jc-row"><span>Problem</span><b data-jc-out="problem"></b></div>
+              </div>
+              <div class="jc-foot">
+                <span class="jc-status"><i></i>Draft · fills as you type</span>
+                <span class="jc-stamp">Quote first</span>
+              </div>
+            </div>
+            <p class="subtle mt-24">This card is exactly what reaches our WhatsApp — so the workshop knows the job before you arrive, and your quote comes back faster.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container contact-grid">
-        <aside class="reveal">
-          <div class="contact-card">
-            <span class="kicker">Contact details</span>
-            <h2 class="h3 mt-24">Lumu Autodealers &amp; Logistics Ltd</h2>
-            <p class="subtle">Built on Trust · Since 2018</p>
-            <div class="divider"></div>
-            <p><b>Phone</b><br>+256 782 017 381<br>+256 782 493 499</p>
-            <p><b>WhatsApp</b><br>+256 782 017 381</p>
-            <p><b>Email</b><br>info@lumuautodealers.com</p>
-            <p><b>Location</b><br>P.O. Box 72434, Kampala — Busega, Masaka Road</p>
-            <p><b>Hours</b><br>Mon – Sat, 8:00am – 6:00pm</p>
-          </div>
-          <div class="map-card mt-24">
-            <div class="map-pin"><svg class="ic" style="display:inline-block;vertical-align:-4px;color:var(--orange-600)"><use href="#ic-pin"/></svg> Busega – Masaka Road, Kampala<br><a class="subtle" href="https://www.google.com/maps/search/?api=1&query=Lumu+Autodealers+Busega+Masaka+Road+Kampala" target="_blank" rel="noopener" style="color:var(--orange-700)">Get directions →</a></div>
-          </div>
-        </aside>
-        <div id="book">
-          <form class="form-card reveal" data-wa-form="Lumu Autodealers — Service Request">
-            <div class="form-grid">
-              <div class="field"><label>Your name</label><input name="Name" autocomplete="name" required /></div>
-              <div class="field"><label>Phone</label><input name="Phone" type="tel" autocomplete="tel" required /></div>
-              <div class="field"><label>Vehicle</label><input name="Vehicle" placeholder="e.g. Toyota Premio, 2008" /></div>
-              <div class="field">
-                <label>Service needed</label>
-                <select name="Service">
-                  <option>Repairs &amp; Servicing</option>
-                  <option>Computerized Diagnostics</option>
-                  <option>Engine Tuning &amp; Fuel Injection</option>
-                  <option>Brakes, Oil, Tyres, Battery &amp; AC</option>
-                  <option>Panel Beating &amp; Spraying</option>
-                  <option>Genuine Spare Parts</option>
-                  <option>Generator &amp; Motorcycle Servicing</option>
-                  <option>Fleet &amp; Logistics</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="field full"><label>What's the problem?</label><textarea name="Message" placeholder="Tell us what's happening with the vehicle…"></textarea></div>
+    <!-- ============ FIND THE WORKSHOP ============ -->
+    <section class="section sec-night" id="find-us">
+      <div class="container">
+        <div class="text-center narrow reveal">
+          <span class="eyebrow center">Where we are</span>
+          <h2 class="mt-16">Find the workshop.</h2>
+          <p class="lead mt-24">Prefer to talk or drive in? Every road leads to the same desk — and the same quote-first promise.</p>
+        </div>
+        <div class="grid grid-3 mt-56" data-stagger>
+          <article class="panel-card reveal">
+            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg></span>
+            <h3>Call us</h3>
+            <p class="subtle">Mon–Sat, 8:00–18:00. Ask for the workshop desk and we will take the job from there.</p>
+            <div>
+              <a class="mono subtle" style="display:block;padding-block:4px" href="tel:+256782017381">+256 782 017 381</a>
+              <a class="mono subtle" style="display:block;padding-block:4px" href="tel:+256782493499">+256 782 493 499</a>
             </div>
-            <button class="btn btn-primary btn-block mt-24" type="submit">Send on WhatsApp</button>
-            <p class="form-note mt-24">This opens WhatsApp with your details pre-filled — nothing is stored on this site.</p>
-          </form>
+          </article>
+          <article class="panel-card reveal">
+            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg></span>
+            <h3>Write</h3>
+            <p class="subtle">WhatsApp is the fastest lane — send the vehicle and the problem, get next steps back. Email works too.</p>
+            <div>
+              <a class="mono subtle" style="display:block;padding-block:4px" href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%27d%20like%20to%20talk%20about%20my%20vehicle." target="_blank" rel="noopener">WhatsApp +256 782 017 381</a>
+              <a class="mono subtle" style="display:block;padding-block:4px" href="mailto:info@lumuautodealers.com">info@lumuautodealers.com</a>
+            </div>
+          </article>
+          <article class="panel-card reveal">
+            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+            <h3>Visit</h3>
+            <p class="subtle">Busega, Masaka Road, Kampala · P.O. Box 72434 · Mon–Sat 8:00–18:00. Drive in — the gate is easy to spot.</p>
+            <a class="btn btn-ghost mt-16" href="https://maps.google.com/?q=Busega+Masaka+Road+Kampala" target="_blank" rel="noopener">Get directions</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="seam" aria-hidden="true"></div>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-banner">
+      <div class="container">
+        <span class="eyebrow center reveal">Built on Trust</span>
+        <h2 class="mt-24 reveal">Or just say hello.</h2>
+        <p class="lead mt-24 reveal">Quality service. Honest work. Lasting relationships.</p>
+        <div class="cta-row cta-center mt-36 reveal">
+          <a class="btn btn-primary" data-magnetic href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%20have%20a%20question." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Say hello on WhatsApp</a>
+          <a class="btn btn-ghost" href="services.html">Back to services</a>
         </div>
       </div>
     </section>
   </main>
 
+  <noscript>
+    <div style="padding:16px;text-align:center;font-family:monospace">
+      <a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="fleet.html">Fleet</a> · <a href="real-estate.html">Real Estate</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · Call +256 782 017 381
+    </div>
+  </noscript>
   <script src="js/chrome.js"></script>
   <script src="js/main.js"></script>
 </body>
