@@ -358,6 +358,87 @@
     });
   });
 
+  /* ================= vehicle inventory (loads window.LUMU_VEHICLES) ============ */
+  var vehicles = window.LUMU_VEHICLES;
+  if (vehicles && vehicles.length) {
+    var UGX = function (n) {
+      if (n == null) return "POA";
+      if (n >= 1e9) return "UGX " + (n / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
+      if (n >= 1e6) return "UGX " + Math.round(n / 1e5) / 10 + "M";
+      return "UGX " + n.toLocaleString("en-UG");
+    };
+    var KM = function (n) { return (n / 1000).toFixed(0) + "k km"; };
+    var bodyIcon = { Sedan: "gauge", SUV: "shield", Pickup: "truck", Van: "truck", Truck: "truck" };
+    function vehicleCard(v, featured) {
+      var waText = "Hello Lumu, I am interested in the " + v.year + " " + v.make + " " + v.model + " (" + v.id + ").";
+      var wa = "https://wa.me/256782017381?text=" + encodeURIComponent(waText);
+      var chips = (v.features || []).slice(0, featured ? 2 : 4).map(function (f) {
+        return '<span class="v-chip">' + f + "</span>";
+      }).join("");
+      var photo = v.photo
+        ? '<img src="' + v.photo + '" alt="' + v.year + " " + v.make + " " + v.model + '" loading="lazy">'
+        : '<span class="v-plate">' + v.make.charAt(0) + v.model.charAt(0) + "</span>" +
+          '<svg class="v-glyph" viewBox="0 0 200 100" aria-hidden="true">' +
+          '<path d="M14 76 L30 46 Q42 34 66 32 L134 32 Q158 34 170 46 L186 76 Z" fill="none" stroke="rgba(255,122,26,.55)" stroke-width="1.6"/>' +
+          '<circle cx="58" cy="80" r="12" fill="none" stroke="rgba(255,122,26,.7)" stroke-width="1.8"/>' +
+          '<circle cx="142" cy="80" r="12" fill="none" stroke="rgba(255,122,26,.7)" stroke-width="1.8"/>' +
+          '</svg>';
+      return '<article class="vehicle-card reveal" data-body="' + v.body + '">' +
+        '<a class="v-photo" href="' + wa + '" target="_blank" rel="noopener" aria-label="Enquire about the ' + v.year + " " + v.make + " " + v.model + '">' +
+          photo +
+          '<span class="v-badge">' + v.body + "</span>" +
+        "</a>" +
+        '<div class="v-body">' +
+          '<div class="v-title"><h3>' + v.make + " " + v.model + "</h3><span class=\"v-year\">" + v.year + "</span></div>" +
+          '<div class="v-specs">' +
+            '<span><svg class="ic" aria-hidden="true"><use href="#ic-gauge"/></svg>' + KM(v.km) + "</span>" +
+            '<span><svg class="ic" aria-hidden="true"><use href="#ic-gear"/></svg>' + v.trans + "</span>" +
+            '<span><svg class="ic" aria-hidden="true"><use href="#ic-parts"/></svg>' + v.fuel + "</span>" +
+          "</div>" +
+          (chips ? '<div class="v-chips">' + chips + "</div>" : "") +
+          (v.note ? '<p class="v-note">' + v.note + "</p>" : "") +
+          '<div class="v-foot">' +
+            '<span class="v-price">' + UGX(v.price) + "</span>" +
+            '<a class="bay-cta" href="' + wa + '" target="_blank" rel="noopener">Enquire →</a>' +
+          "</div>" +
+        "</div>" +
+        "</article>";
+    }
+    var grid = document.getElementById("vehicles-grid");
+    var empty = document.getElementById("empty-state");
+    var countEl = document.getElementById("v-count");
+    var sampleBanner = document.getElementById("sample-banner");
+    if (grid) {
+      grid.innerHTML = vehicles.map(function (v) { return vehicleCard(v); }).join("");
+      if (countEl) countEl.textContent = vehicles.length;
+      if (sampleBanner && vehicles.some(function (v) { return v.sample; })) sampleBanner.hidden = false;
+      // filter chips
+      document.querySelectorAll(".filter-bar .chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          document.querySelectorAll(".filter-bar .chip").forEach(function (c) {
+            c.classList.toggle("active", c === chip);
+            c.setAttribute("aria-selected", c === chip ? "true" : "false");
+          });
+          var f = chip.dataset.filter;
+          var shown = 0;
+          grid.querySelectorAll(".vehicle-card").forEach(function (card) {
+            var match = f === "all" || card.dataset.body === f;
+            card.hidden = !match;
+            if (match) shown++;
+          });
+          if (empty) empty.hidden = shown > 0;
+        });
+      });
+      // re-run reveal observer on newly-inserted cards
+      grid.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    }
+    var featured = document.getElementById("featured-stock");
+    if (featured) {
+      featured.innerHTML = vehicles.slice(0, 3).map(function (v) { return vehicleCard(v, true); }).join("");
+      featured.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    }
+  }
+
   /* ================= click-to-load map (no cookies until user acts) ============= */
   document.querySelectorAll("[data-map]").forEach(function (host) {
     var btn = host.querySelector("[data-map-load]");

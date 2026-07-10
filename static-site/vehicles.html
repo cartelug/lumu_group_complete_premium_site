@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Vehicles for sale — Lumu Autodealers &amp; Logistics Ltd, Kampala</title>
+  <meta name="description" content="Honest Uganda-market vehicles from Lumu Autodealers — SUVs, sedans, pickups, vans and trucks. Inspected before we list, written quote before you buy." />
+  <meta name="theme-color" content="#0c0a08" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="canonical" href="https://www.lumuautodealers.com/vehicles.html" />
+  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-page="vehicles">
+  <main id="main">
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Vehicles</span></nav>
+        <span class="eyebrow reveal" style="--d:.05s">The showroom</span>
+        <h1 class="mt-24 reveal" style="--d:.1s">Kampala <span class="orange">stock.</span></h1>
+        <p class="lead mt-24 reveal" style="--d:.18s">Honest Uganda-market vehicles — inspected before we list them, priced in the open, and backed by the same quote-first rule as the workshop. Don't see the one you want? We source to order.</p>
+        <div class="stat-strip reveal" style="--d:.26s">
+          <div class="stat-chip"><b id="v-count">—</b><span>In stock</span></div>
+          <div class="stat-chip"><b>Inspected</b><span>Before we list</span></div>
+          <div class="stat-chip"><b>Sourced</b><span>To order</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INVENTORY ============ -->
+    <section class="section sec-paper" id="inventory">
+      <div class="container">
+        <div class="sec-head">
+          <div class="reveal-l">
+            <span class="eyebrow">The floor</span>
+            <h2 class="mt-16">Filter by body type.</h2>
+          </div>
+          <a class="btn btn-ghost reveal-r" href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle." target="_blank" rel="noopener">Ask us to source</a>
+        </div>
+        <div class="filter-bar reveal mt-36" role="tablist" aria-label="Filter vehicles by body type">
+          <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="chip" data-filter="Sedan" role="tab" aria-selected="false">Sedan</button>
+          <button type="button" class="chip" data-filter="SUV" role="tab" aria-selected="false">SUV</button>
+          <button type="button" class="chip" data-filter="Pickup" role="tab" aria-selected="false">Pickup</button>
+          <button type="button" class="chip" data-filter="Van" role="tab" aria-selected="false">Van</button>
+          <button type="button" class="chip" data-filter="Truck" role="tab" aria-selected="false">Truck</button>
+        </div>
+        <p class="sample-banner reveal mt-24" id="sample-banner" hidden><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg><span>Sample listings — real inventory drops in weekly. Enquire and we'll match you a live unit.</span></p>
+        <div class="grid grid-3 mt-36" id="vehicles-grid" data-stagger aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No vehicles match that filter right now — try another body type, or <a href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20need%20a%20specific%20vehicle." target="_blank" rel="noopener">ask us to source one</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ HOW BUYING WORKS ============ -->
+    <section class="band">
+      <div class="container">
+        <div class="text-center narrow reveal-scale">
+          <span class="eyebrow center">How buying works</span>
+          <h2 class="mt-16">Nothing changes hands<br>until you're sure.</h2>
+          <p class="lead mt-24">The same rule that runs the workshop runs the floor — inspect, quote, approve, close.</p>
+        </div>
+        <div class="grid grid-3 mt-56" data-stagger>
+          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-diagnostics"/></svg></span><h3>Inspect</h3><p class="subtle">Full mechanical and body check before we hand you the keys — the same technicians who service every day.</p></article>
+          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-key"/></svg></span><h3>Test drive</h3><p class="subtle">Drive it on real Kampala roads. Nothing on paper replaces ten minutes on the tarmac.</p></article>
+          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg></span><h3>Papers</h3><p class="subtle">Logbook, transfer, tax — handled cleanly. We won't sell a vehicle whose paperwork we haven't seen ourselves.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="seam" aria-hidden="true"></div>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-banner" id="contact">
+      <div class="container">
+        <span class="eyebrow center reveal">Not on the floor yet?</span>
+        <h2 class="mt-24 reveal">We source<br>to <span class="orange">order.</span></h2>
+        <p class="lead mt-24 reveal">Tell us the make, model, year, budget and how you'll use it — we'll come back with three honest options.</p>
+        <div class="cta-row cta-center mt-36 reveal">
+          <a class="btn btn-primary" data-magnetic href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Tell us what you need</a>
+          <a class="btn btn-ghost" href="contact.html">Visit the workshop</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <div style="padding:16px;text-align:center;font-family:monospace">
+      <a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="fleet.html">Fleet</a> · <a href="real-estate.html">Real Estate</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · Call +256 782 017 381
+      <p style="margin-top:14px">Vehicle listings need JavaScript. WhatsApp us and we'll send you a live list.</p>
+    </div>
+  </noscript>
+  <script src="js/chrome.js"></script>
+  <script src="data/vehicles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

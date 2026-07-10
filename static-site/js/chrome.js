@@ -14,11 +14,12 @@
 
   var NAV = [
     ["index.html", "Home", "home", "01"],
-    ["services.html", "Services", "services", "02"],
-    ["fleet.html", "Fleet", "fleet", "03"],
-    ["real-estate.html", "Real Estate", "real-estate", "04"],
-    ["about.html", "About", "about", "05"],
-    ["contact.html", "Contact", "contact", "06"]
+    ["vehicles.html", "Vehicles", "vehicles", "02"],
+    ["services.html", "Services", "services", "03"],
+    ["fleet.html", "Fleet", "fleet", "04"],
+    ["real-estate.html", "Real Estate", "real-estate", "05"],
+    ["about.html", "About", "about", "06"],
+    ["contact.html", "Contact", "contact", "07"]
   ];
 
   var navHtml = NAV.map(function (n) {
@@ -85,7 +86,7 @@
     '<div><a class="brand" href="index.html" aria-label="Lumu Autodealers home">' + logo("lf", "Built on Trust") + "</a>" +
     '<p class="mt-24">Quality service. Honest work. Lasting relationships. Motor vehicle repairs, servicing, diagnostics, genuine parts and logistics in Kampala since 2018.</p>' +
     '<div class="cta-row mt-24"><a class="btn btn-primary" href="contact.html#book">Book a service</a></div></div>' +
-    '<div class="f-col"><h3>Workshop</h3><a href="services.html">All services</a><a href="services.html#bay-1">Repairs &amp; servicing</a><a href="services.html#bay-2">Diagnostics</a><a href="services.html#bay-5">Spare parts</a><a href="fleet.html">Fleet &amp; logistics</a></div>' +
+    '<div class="f-col"><h3>Workshop</h3><a href="vehicles.html">Vehicles for sale</a><a href="services.html">All services</a><a href="services.html#bay-2">Diagnostics</a><a href="services.html#bay-5">Spare parts</a><a href="fleet.html">Fleet &amp; logistics</a></div>' +
     '<div class="f-col"><h3>Company</h3><a href="about.html">About Lumu</a><a href="real-estate.html">Lumu Real Estate</a><a href="contact.html">Contact</a><a href="contact.html#book">Open a job card</a></div>' +
     '<div class="f-col f-contact"><h3>Find us</h3><p class="mono" style="font-size:.8rem;line-height:2">P.O. Box 72434, Kampala<br>' + ADDRESS + "</p>" +
     '<a href="' + TEL + '">' + PHONE + '</a><a href="tel:+256782493499">' + PHONE2 + '</a><a href="mailto:' + EMAIL + '">' + EMAIL + "</a></div>" +
