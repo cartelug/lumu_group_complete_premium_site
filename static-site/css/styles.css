@@ -642,6 +642,67 @@ body.menu-open .mobile-menu a.mm-link { transform: translateY(0); opacity: 1; }
 .form-note { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .08em; color: var(--ink-2); display: flex; gap: 8px; align-items: center; }
 .form-note .ic { width: 15px; height: 15px; color: var(--ok); }
 
+/* fallback channels row (Email / Copy) — appears under the primary submit */
+.fallback-row { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; padding: 8px 0 0; position: relative; }
+.fallback-label { font-family: var(--f-mono); font-size: .64rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); margin-right: 4px; }
+.fallback-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border: 1px solid #d5cbb8; border-radius: 9px;
+  background: transparent; color: var(--ink);
+  font-family: var(--f-mono); font-size: .74rem; font-weight: 500; letter-spacing: .04em;
+  transition: border-color .2s, color .2s, background-color .2s, transform .3s var(--ease-out);
+}
+.fallback-btn .ic { width: 14px; height: 14px; color: var(--ember); }
+.fallback-btn:hover { border-color: var(--ember); color: var(--ember); transform: translateY(-1px); }
+.form-hint {
+  position: absolute; left: 0; right: 0; top: 100%; margin-top: 8px;
+  font-family: var(--f-mono); font-size: .68rem; color: var(--ok);
+  opacity: 0; transform: translateY(-4px); transition: opacity .2s, transform .2s;
+}
+.form-hint.show { opacity: 1; transform: translateY(0); }
+
+/* ============ map (contact) ============ */
+.map-frame {
+  position: relative; margin-top: clamp(36px, 5vw, 56px);
+  border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--edge);
+  background: var(--panel); aspect-ratio: 16 / 7;
+  display: flex; align-items: center; justify-content: center;
+}
+.map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.map-placeholder { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 30px; text-align: center; color: var(--fog-2); }
+.map-placeholder h3 { font-size: 1.2rem; color: var(--fog); }
+.map-placeholder p { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--steel); max-width: 44ch; }
+.map-frame::before {                        /* faint street-grid texture */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(rgba(255,122,26,.06) 1px, transparent 1px) 0 0/64px 64px,
+    linear-gradient(90deg, rgba(255,122,26,.06) 1px, transparent 1px) 0 0/64px 64px,
+    radial-gradient(circle at 32% 42%, rgba(255,122,26,.14), transparent 55%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent 92%);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent 92%);
+}
+
+/* ============ print — save the job card as PDF ============ */
+@media print {
+  @page { size: A5 portrait; margin: 14mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  .topbar, .header, .mobile-menu, .mobile-actions, .wa-fab, .to-top,
+  .scroll-progress, .preloader, .footer, .cta-banner,
+  .fallback-row, .form-note, form, .sec-head, .brand-belt,
+  .band, .cta-row, .seam { display: none !important; }
+  .page-hero { padding-block: 8mm !important; background: #fff !important; color: #000 !important; }
+  .page-hero::before, .page-hero::after { display: none !important; }
+  .page-hero h1 { font-size: 28pt !important; color: #000 !important; }
+  .page-hero .stat-strip, .crumbs { display: none !important; }
+  .reveal, .reveal-l, .reveal-r, .reveal-scale { opacity: 1 !important; transform: none !important; }
+  .jobcard { box-shadow: none !important; border-color: #333 !important; page-break-inside: avoid; }
+  a { color: inherit !important; text-decoration: none !important; }
+  /* extra-focus print mode: only the job card, hide the form */
+  body.printing-jobcard #main > section:not(#book) { display: none !important; }
+  body.printing-jobcard #book .sec-head,
+  body.printing-jobcard #book form { display: none !important; }
+}
+
 /* ============ page hero (interior pages) ============ */
 .page-hero {
   position: relative; background: var(--night); color: var(--fog); overflow: clip;

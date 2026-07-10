@@ -286,16 +286,91 @@
     input.addEventListener("change", sync);
   });
 
+  function collectFormText(form) {
+    var lines = [];
+    Array.prototype.forEach.call(form.elements, function (f) {
+      if (!f.name || !String(f.value).trim()) return;
+      lines.push(f.name + ": " + String(f.value).trim());
+    });
+    var title = form.getAttribute("data-wa-form") || "Lumu — Request";
+    return { title: title, body: "— " + title + " —\n" + lines.join("\n") };
+  }
+  function flashHint(host, msg) {
+    var t = document.createElement("span");
+    t.className = "form-hint"; t.textContent = msg;
+    host.appendChild(t);
+    setTimeout(function () { t.classList.add("show"); }, 20);
+    setTimeout(function () { t.classList.remove("show"); }, 2200);
+    setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2700);
+  }
   document.querySelectorAll("[data-wa-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var lines = [];
-      Array.prototype.forEach.call(form.elements, function (f) {
-        if (!f.name || !String(f.value).trim()) return;
-        lines.push(f.name + ": " + String(f.value).trim());
+      var m = collectFormText(form);
+      window.open(WA + encodeURIComponent(m.body), "_blank", "noopener");
+    });
+    // secondary channel buttons: form declares data-fallback-into="#some-id"
+    var target = form.querySelector("[data-fallback-into]") || form.querySelector('.cta-row');
+    if (target) {
+      var row = document.createElement("div");
+      row.className = "fallback-row";
+      row.innerHTML =
+        '<span class="fallback-label">Or send by</span>' +
+        '<button type="button" class="fallback-btn" data-ch="email"><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg>Email</button>' +
+        '<button type="button" class="fallback-btn" data-ch="copy"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg>Copy</button>';
+      target.appendChild(row);
+      row.addEventListener("click", function (ev) {
+        var btn = ev.target.closest("button.fallback-btn");
+        if (!btn) return;
+        var m = collectFormText(form);
+        if (btn.dataset.ch === "email") {
+          var subj = encodeURIComponent("Lumu — " + m.title);
+          var body = encodeURIComponent(m.body);
+          window.location.href = "mailto:info@lumuautodealers.com?subject=" + subj + "&body=" + body;
+        } else if (btn.dataset.ch === "copy") {
+          var text = m.body;
+          var done = function () { flashHint(row, "Copied — paste anywhere"); };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, done);
+          } else {
+            var ta = document.createElement("textarea");
+            ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand("copy"); } catch (e) {}
+            document.body.removeChild(ta); done();
+          }
+        }
       });
-      var title = form.getAttribute("data-wa-form") || "Lumu — Request";
-      window.open(WA + encodeURIComponent("— " + title + " —\n" + lines.join("\n")), "_blank", "noopener");
+    }
+  });
+
+  /* ================= print / save-as-PDF the job card ================= */
+  document.querySelectorAll("[data-print]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.body.classList.add("printing-jobcard");
+      var restore = function () {
+        document.body.classList.remove("printing-jobcard");
+        window.removeEventListener("afterprint", restore);
+      };
+      window.addEventListener("afterprint", restore);
+      window.print();
+      setTimeout(restore, 4000); // safety
+    });
+  });
+
+  /* ================= click-to-load map (no cookies until user acts) ============= */
+  document.querySelectorAll("[data-map]").forEach(function (host) {
+    var btn = host.querySelector("[data-map-load]");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var q = host.dataset.map || "Busega Masaka Road Kampala";
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.google.com/maps?q=" + encodeURIComponent(q) + "&output=embed";
+      iframe.loading = "lazy";
+      iframe.title = "Lumu Autodealers on Google Maps";
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+      host.replaceChildren(iframe);
     });
   });
 })();
