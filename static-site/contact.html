@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Contact — Open a Job Card | Lumu Autodealers &amp; Logistics Ltd, Busega, Kampala</title>
-  <meta name="description" content="Contact Lumu Autodealers & Logistics Ltd in Busega, Masaka Road, Kampala. Open a job card on WhatsApp, call +256 782 017 381 or visit the workshop — written quote before any work begins." />
-  <meta name="theme-color" content="#0c0a08" />
+  <meta name="description" content="Contact Lumu Autodealers & Logistics Ltd in Busega, Masaka Road, Kampala. Open a job card on WhatsApp, call +256 782 017 381, or drive in — a written quote before any work begins." />
+  <meta name="theme-color" content="#fbfaf5" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="canonical" href="https://www.lumuautodealers.com/contact.html" />
@@ -13,9 +13,9 @@
   <meta property="og:title" content="Open a Job Card — Contact Lumu Autodealers" />
   <meta property="og:description" content="Tell us the vehicle and the problem. We reply on WhatsApp with next steps and a written quote before any work begins." />
   <meta property="og:image" content="https://www.lumuautodealers.com/assets/og.png" />
-  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="assets/fonts/v2/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/v2/inter-tight.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/studio.css" />
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
   {
@@ -38,38 +38,272 @@
     }
   }
   </script>
+  <style>
+    /* --- contact-only helpers: form fields, job-card preview, print --- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 22px;
+      align-content: start;
+    }
+    .form-grid .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-grid .field.full { grid-column: 1 / -1; }
+    .form-grid label {
+      font-family: var(--f-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rule-2);
+    }
+    .form-grid input,
+    .form-grid select,
+    .form-grid textarea {
+      font: inherit;
+      color: var(--rule);
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--hairline);
+      padding: 12px 2px;
+      transition: border-color .25s;
+      border-radius: 0;
+    }
+    .form-grid input:focus,
+    .form-grid select:focus,
+    .form-grid textarea:focus {
+      outline: none;
+      border-bottom-color: var(--accent-deep);
+    }
+    .form-grid textarea {
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-sm);
+      padding: 14px 16px;
+      resize: vertical;
+      min-height: 130px;
+    }
+    .form-grid textarea:focus { border-color: var(--accent-deep); }
+    .form-grid select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%235c554a' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 4px center;
+      background-size: 12px 8px;
+      padding-right: 24px;
+    }
+    .form-note {
+      font-family: var(--f-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--rule-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* --- Job card preview --- */
+    .jc-card {
+      background: var(--canvas-3);
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-lg);
+      padding: clamp(26px, 3vw, 34px);
+      position: relative;
+      box-shadow: 0 30px 60px -40px rgba(26,22,19,0.18);
+    }
+    .jc-card::before {
+      content: "";
+      position: absolute;
+      top: -1px; left: 24px; right: 24px;
+      height: 2px;
+      background: var(--iridescent);
+      border-radius: 2px;
+    }
+    .jc-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--rule-3);
+      margin-bottom: 8px;
+    }
+    .jc-head h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.4rem; }
+    .jc-ref {
+      font-family: var(--f-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rule-2);
+    }
+    .jc-rows { display: flex; flex-direction: column; }
+    .jc-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 14px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--rule-3);
+    }
+    .jc-row:last-child { border-bottom: 0; }
+    .jc-row span {
+      font-family: var(--f-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rule-2);
+    }
+    .jc-row b {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.06rem;
+      color: var(--rule);
+      line-height: 1.35;
+      min-height: 1.35em;
+      word-break: break-word;
+    }
+    .jc-row b:empty::before {
+      content: "—";
+      color: var(--rule-3);
+      font-style: normal;
+    }
+    .jc-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      font-family: var(--f-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rule-2);
+    }
+    .jc-status i {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+      display: inline-block;
+    }
+
+    /* --- Map frame --- */
+    .map-frame {
+      margin-top: clamp(48px, 6vw, 72px);
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--canvas);
+      position: relative;
+      aspect-ratio: 16 / 7;
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .map-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+      padding: 40px 24px;
+      background:
+        repeating-linear-gradient(45deg, transparent 0 22px, rgba(224,122,28,0.04) 22px 23px),
+        var(--canvas);
+    }
+    .map-placeholder h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.4rem; }
+    .map-placeholder p { color: var(--rule-2); max-width: 44ch; font-size: 0.96rem; }
+
+    /* --- Contact card body --- */
+    .contact-card { text-align: left; }
+    .contact-card .contact-lines a {
+      display: block;
+      padding-block: 4px;
+      font-family: var(--f-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      color: var(--rule);
+      transition: color .2s;
+    }
+    .contact-card .contact-lines a:hover { color: var(--accent-deep); }
+    .contact-card .hours {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-family: var(--f-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rule-2);
+    }
+
+    @media (max-width: 720px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .jc-row { grid-template-columns: 90px 1fr; }
+    }
+
+    /* --- Print: only the job card, nothing else --- */
+    @media print {
+      body { background: #fff; }
+      body::before { display: none !important; }
+      body.printing-jobcard > *:not(main) { display: none !important; }
+      body.printing-jobcard main > * { display: none !important; }
+      body.printing-jobcard #book { display: block !important; padding: 0 !important; }
+      body.printing-jobcard #book .container > *:not(.split) { display: none !important; }
+      body.printing-jobcard #book .split { display: block !important; }
+      body.printing-jobcard #book .split > *:first-child { display: none !important; }
+      body.printing-jobcard .jc-card {
+        box-shadow: none !important;
+        border: 1.5px solid #1a1613 !important;
+        background: #fff !important;
+        page-break-inside: avoid;
+      }
+      body.printing-jobcard .cta-row,
+      body.printing-jobcard .jc-status { display: none !important; }
+    }
+  </style>
 </head>
 <body data-page="contact">
   <main id="main">
 
-    <!-- ============ PAGE HERO ============ -->
-    <section class="page-hero">
+    <!-- ============ OPENING SECTION ============ -->
+    <section class="section" style="padding-top:clamp(64px,8vw,108px)">
       <div class="container">
-        <nav class="crumbs reveal" aria-label="Breadcrumb">
-          <a href="index.html">Home</a><span class="sep">/</span><span>Contact</span>
-        </nav>
-        <span class="eyebrow reveal" style="--d:.06s">Talk to the workshop</span>
-        <h1 class="mt-24 reveal" style="--d:.12s">Open a <span class="orange">job card.</span></h1>
-        <p class="lead mt-24 reveal" style="--d:.18s">Tell us the vehicle and the problem — we reply on WhatsApp with next steps and a written quote before any work begins.</p>
-        <div class="stat-strip reveal" style="--d:.24s">
-          <div class="stat-chip"><b>Working hours</b><span>Reply</span></div>
-          <div class="stat-chip"><b>Written first</b><span>Quote</span></div>
-          <div class="stat-chip"><b>Busega, Masaka Rd</b><span>Visit</span></div>
+        <nav class="crumbs reveal" aria-label="Breadcrumb" style="display:flex;gap:10px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rule-2);margin-bottom:22px"><a href="index.html" style="color:var(--rule)">Home</a><span style="color:var(--rule-3)">/</span><span>Contact</span></nav>
+        <span class="kicker reveal" style="--d:.05s">Talk to the workshop</span>
+        <h1 class="mt-24 reveal" style="--d:.1s">Open a <em class="h-italic">job card.</em></h1>
+        <p class="lead mt-24 reveal" style="--d:.18s">Tell us the vehicle and the problem &mdash; we reply on WhatsApp with next steps and a <span class="hand-underline">written quote before any work begins</span>.</p>
+        <div class="stat-strip reveal mt-56" style="--d:.26s">
+          <div class="stat"><b>Working hours</b><span>Reply</span></div>
+          <div class="stat"><b>Written first</b><span>Quote</span></div>
+          <div class="stat"><b>Busega</b><span>Visit</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ THE JOB CARD BUILDER ============ -->
-    <section class="section sec-paper" id="book">
+    <!-- ============ D-FOLD ============ -->
+    <div class="divider d-fold" aria-hidden="true"></div>
+
+    <!-- ============ JOB CARD BUILDER ============ -->
+    <section class="section" id="book">
       <div class="container">
         <div class="sec-head">
-          <div class="reveal-l">
-            <span class="eyebrow">Book a service</span>
-            <h2 class="mt-16">The job card builder.</h2>
-            <p class="lead mt-24">Fill in the form and watch your job card write itself. Press send and the whole card lands in our WhatsApp — ready for the workshop.</p>
+          <div class="sec-head-copy reveal-l">
+            <span class="kicker">Book a service</span>
+            <h2>The job card <em class="h-italic">builder.</em></h2>
+            <p class="lead mt-16">Fill in the form and watch your job card write itself. Press send and the whole card lands in our WhatsApp &mdash; ready for the workshop.</p>
           </div>
         </div>
-        <div class="split mt-56">
+        <div class="split">
           <form class="form-grid reveal-l" data-wa-form="Job card request">
             <div class="field">
               <label for="f-name">Name</label>
@@ -102,19 +336,22 @@
             </div>
             <div class="field full">
               <label for="f-problem">What is the car doing?</label>
-              <textarea id="f-problem" name="Problem" data-jc="problem" placeholder="e.g. Losing power uphill, warning light on since Tuesday…"></textarea>
+              <textarea id="f-problem" name="Problem" data-jc="problem" placeholder="e.g. Losing power uphill, warning light on since Tuesday..."></textarea>
             </div>
             <div class="field full">
-              <p class="form-note"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg>Opens in WhatsApp — nothing is stored on this site.</p>
-              <div class="cta-row mt-8">
-                <button class="btn btn-dark" type="submit"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Send the job card</button>
-              </div>
+              <p class="form-note"><svg class="ic" aria-hidden="true" style="width:14px;height:14px;color:var(--accent-deep)"><use href="#ic-check"/></svg>Opens in WhatsApp &mdash; nothing is stored on this site.</p>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Send the job card</button>
             </div>
           </form>
 
           <div class="reveal-r">
-            <div class="jobcard tilt">
-              <div class="jc-head"><b>Job card</b><span class="jc-ref">LUMU · NEW REQUEST</span></div>
+            <div class="jc-card">
+              <div class="jc-head">
+                <h3>Job card</h3>
+                <span class="jc-ref">Lumu &middot; New request</span>
+              </div>
               <div class="jc-rows">
                 <div class="jc-row"><span>Customer</span><b data-jc-out="name"></b></div>
                 <div class="jc-row"><span>Phone</span><b data-jc-out="phone"></b></div>
@@ -123,75 +360,83 @@
                 <div class="jc-row"><span>Service</span><b data-jc-out="service"></b></div>
                 <div class="jc-row"><span>Problem</span><b data-jc-out="problem"></b></div>
               </div>
-              <div class="jc-foot">
-                <span class="jc-status"><i></i>Draft · fills as you type</span>
-                <span class="jc-stamp">Quote first</span>
-              </div>
             </div>
-            <p class="subtle mt-24">This card is exactly what reaches our WhatsApp — so the workshop knows the job before you arrive, and your quote comes back faster.</p>
+            <div class="jc-status"><i></i>Draft &middot; fills as you type</div>
             <div class="cta-row mt-16">
-              <button class="fallback-btn" type="button" data-print><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg>Save this card as PDF</button>
+              <button class="btn btn-ghost" type="button" data-print><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg>Save this card as PDF</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ D-SPARK ============ -->
+    <div class="divider d-spark" aria-hidden="true"></div>
+
     <!-- ============ FIND THE WORKSHOP ============ -->
-    <section class="section sec-night" id="find-us">
+    <section class="section" id="find-us">
       <div class="container">
         <div class="text-center narrow reveal">
-          <span class="eyebrow center">Where we are</span>
-          <h2 class="mt-16">Find the workshop.</h2>
-          <p class="lead mt-24">Prefer to talk or drive in? Every road leads to the same desk — and the same quote-first promise.</p>
+          <span class="kicker center">Where we are</span>
+          <h2 class="mt-16">Find the <em class="h-italic">workshop.</em></h2>
+          <p class="lead mt-24" style="margin-inline:auto">Prefer to talk or drive in? Every road leads to the same desk &mdash; and the same quote-first promise.</p>
         </div>
-        <div class="grid grid-3 mt-56" data-stagger>
-          <article class="panel-card reveal">
-            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg></span>
+        <div class="grid grid-3 mt-88" data-stagger>
+          <article class="card contact-card reveal">
+            <div class="card-top"><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg></span></div>
             <h3>Call us</h3>
-            <p class="subtle">Mon–Sat, 8:00–18:00. Ask for the workshop desk and we will take the job from there.</p>
-            <div>
-              <a class="mono subtle" style="display:block;padding-block:4px" href="tel:+256782017381">+256 782 017 381</a>
-              <a class="mono subtle" style="display:block;padding-block:4px" href="tel:+256782493499">+256 782 493 499</a>
+            <p class="subtle">Ask for the workshop desk and we&rsquo;ll take the job from there.</p>
+            <div class="contact-lines">
+              <a href="tel:+256782017381">+256 782 017 381</a>
+              <a href="tel:+256782493499">+256 782 493 499</a>
             </div>
+            <span class="hours">Mon &ndash; Sat &middot; 8:00 &ndash; 18:00</span>
           </article>
-          <article class="panel-card reveal">
-            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg></span>
+          <article class="card contact-card reveal">
+            <div class="card-top"><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg></span></div>
             <h3>Write</h3>
-            <p class="subtle">WhatsApp is the fastest lane — send the vehicle and the problem, get next steps back. Email works too.</p>
-            <div>
-              <a class="mono subtle" style="display:block;padding-block:4px" href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%27d%20like%20to%20talk%20about%20my%20vehicle." target="_blank" rel="noopener">WhatsApp +256 782 017 381</a>
-              <a class="mono subtle" style="display:block;padding-block:4px" href="mailto:info@lumuautodealers.com">info@lumuautodealers.com</a>
+            <p class="subtle">WhatsApp is the fastest lane &mdash; send the vehicle and the problem, get next steps back. Email works too.</p>
+            <div class="contact-lines">
+              <a href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%27d%20like%20to%20talk%20about%20my%20vehicle." target="_blank" rel="noopener">WhatsApp +256 782 017 381</a>
+              <a href="mailto:info@lumuautodealers.com">info@lumuautodealers.com</a>
             </div>
           </article>
-          <article class="panel-card reveal">
-            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+          <article class="card contact-card reveal">
+            <div class="card-top"><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg></span></div>
             <h3>Visit</h3>
-            <p class="subtle">Busega, Masaka Road, Kampala · P.O. Box 72434 · Mon–Sat 8:00–18:00. Drive in — the gate is easy to spot.</p>
-            <a class="btn btn-ghost mt-16" href="https://maps.google.com/?q=Busega+Masaka+Road+Kampala" target="_blank" rel="noopener">Get directions</a>
+            <p class="subtle">Busega, Masaka Road, Kampala &middot; P.O. Box 72434. Drive in &mdash; the gate is easy to spot.</p>
+            <span class="hours">Mon &ndash; Sat &middot; 8:00 &ndash; 18:00</span>
+            <a class="btn btn-ghost mt-16" href="https://maps.google.com/?q=Busega+Masaka+Road+Kampala" target="_blank" rel="noopener" style="align-self:flex-start">Get directions</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ MAP ============ -->
+    <section class="section-tight" id="map">
+      <div class="container">
         <div class="map-frame reveal" data-map="Busega Masaka Road Kampala">
           <div class="map-placeholder">
-            <span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg></span>
-            <h3>Busega · Masaka Road, Kampala</h3>
-            <p>Loads Google Maps on demand — no cookies until you tap Load map.</p>
+            <span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+            <h3>Busega &middot; Masaka Road, Kampala</h3>
+            <p>Loads Google Maps on demand &mdash; no cookies until you tap Load map.</p>
             <button type="button" class="btn btn-primary" data-map-load><svg class="ic" aria-hidden="true"><use href="#ic-pin"/></svg>Load map</button>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="seam" aria-hidden="true"></div>
+    <!-- ============ D-IGNITION ============ -->
+    <div class="divider d-ignition" aria-hidden="true"></div>
 
     <!-- ============ CTA ============ -->
-    <section class="cta-banner">
+    <section class="cta">
       <div class="container">
-        <span class="eyebrow center reveal">Built on Trust</span>
-        <h2 class="mt-24 reveal">Or just say hello.</h2>
+        <span class="kicker center reveal">Built on trust</span>
+        <h2 class="mt-24 reveal">Or just <em class="h-italic">say hello.</em></h2>
         <p class="lead mt-24 reveal">Quality service. Honest work. Lasting relationships.</p>
-        <div class="cta-row cta-center mt-36 reveal">
-          <a class="btn btn-primary" data-magnetic href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%20have%20a%20question." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Say hello on WhatsApp</a>
+        <div class="cta-row cta-center reveal">
+          <a class="btn btn-primary" href="https://wa.me/256782017381?text=Hello%20Lumu%20Autodealers%2C%20I%20have%20a%20question." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Say hello on WhatsApp</a>
           <a class="btn btn-ghost" href="services.html">Back to services</a>
         </div>
       </div>
@@ -200,10 +445,41 @@
 
   <noscript>
     <div style="padding:16px;text-align:center;font-family:monospace">
-      <a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="fleet.html">Fleet</a> · <a href="real-estate.html">Real Estate</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · Call +256 782 017 381
+      <a href="index.html">Home</a> &middot; <a href="vehicles.html">Vehicles</a> &middot; <a href="services.html">Services</a> &middot; <a href="fleet.html">Fleet</a> &middot; <a href="real-estate.html">Real Estate</a> &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a>
     </div>
   </noscript>
-  <script src="js/chrome.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/studio-chrome.js"></script>
+  <script src="js/studio.js"></script>
+  <script>
+    // contact-only: click-to-load map + save-as-PDF for the job card
+    (function () {
+      document.querySelectorAll("[data-map]").forEach(function (host) {
+        var btn = host.querySelector("[data-map-load]");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var q = host.dataset.map || "Busega Masaka Road Kampala";
+          var iframe = document.createElement("iframe");
+          iframe.src = "https://www.google.com/maps?q=" + encodeURIComponent(q) + "&output=embed";
+          iframe.loading = "lazy";
+          iframe.title = "Lumu Autodealers on Google Maps";
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+          host.replaceChildren(iframe);
+        });
+      });
+      document.querySelectorAll("[data-print]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.body.classList.add("printing-jobcard");
+          var restore = function () {
+            document.body.classList.remove("printing-jobcard");
+            window.removeEventListener("afterprint", restore);
+          };
+          window.addEventListener("afterprint", restore);
+          window.print();
+          setTimeout(restore, 4000);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

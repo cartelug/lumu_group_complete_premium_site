@@ -5,82 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Vehicles for sale — Lumu Autodealers &amp; Logistics Ltd, Kampala</title>
   <meta name="description" content="Honest Uganda-market vehicles from Lumu Autodealers — SUVs, sedans, pickups, vans and trucks. Inspected before we list, written quote before you buy." />
-  <meta name="theme-color" content="#0c0a08" />
+  <meta name="theme-color" content="#fbfaf5" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="canonical" href="https://www.lumuautodealers.com/vehicles.html" />
-  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kampala stock — Lumu Autodealers &amp; Logistics Ltd" />
+  <meta property="og:description" content="Inspected before we list. Priced in the open. The same quote-first rule as the workshop." />
+  <meta property="og:image" content="https://www.lumuautodealers.com/assets/og.png" />
+  <link rel="preload" href="assets/fonts/v2/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/v2/inter-tight.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/studio.css" />
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="vehicles">
   <main id="main">
-    <!-- ============ PAGE HERO ============ -->
-    <section class="page-hero">
+
+    <!-- ============ OPENING SECTION ============ -->
+    <section class="section" style="padding-top:clamp(64px,8vw,108px)">
       <div class="container">
-        <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Vehicles</span></nav>
-        <span class="eyebrow reveal" style="--d:.05s">The showroom</span>
-        <h1 class="mt-24 reveal" style="--d:.1s">Kampala <span class="orange">stock.</span></h1>
-        <p class="lead mt-24 reveal" style="--d:.18s">Honest Uganda-market vehicles — inspected before we list them, priced in the open, and backed by the same quote-first rule as the workshop. Don't see the one you want? We source to order.</p>
-        <div class="stat-strip reveal" style="--d:.26s">
-          <div class="stat-chip"><b id="v-count">—</b><span>In stock</span></div>
-          <div class="stat-chip"><b>Inspected</b><span>Before we list</span></div>
-          <div class="stat-chip"><b>Sourced</b><span>To order</span></div>
+        <nav class="crumbs reveal" aria-label="Breadcrumb" style="display:flex;gap:10px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rule-2);margin-bottom:22px"><a href="index.html" style="color:var(--rule)">Home</a><span style="color:var(--rule-3)">/</span><span>Vehicles</span></nav>
+        <span class="kicker reveal" style="--d:.05s">The showroom</span>
+        <h1 class="mt-24 reveal" style="--d:.1s">Kampala <em class="h-italic">stock.</em></h1>
+        <p class="lead mt-24 reveal" style="--d:.18s">Honest Uganda-market vehicles — inspected before we list them, priced in the open, and backed by the same <span class="hand-underline">quote-first rule</span> as the workshop. Don't see the one you want? We source to order.</p>
+        <div class="stat-strip reveal mt-56" style="--d:.26s">
+          <div class="stat"><b id="v-count" class="tabular">—</b><span>In stock</span></div>
+          <div class="stat"><b>Inspected</b><span>Before we list</span></div>
+          <div class="stat"><b>Sourced</b><span>To order</span></div>
         </div>
       </div>
     </section>
+
+    <!-- ============ D-1 TORQUE ============ -->
+    <div class="divider d-torque" aria-hidden="true"></div>
 
     <!-- ============ INVENTORY ============ -->
-    <section class="section sec-paper" id="inventory">
+    <section class="section" id="inventory">
       <div class="container">
         <div class="sec-head">
-          <div class="reveal-l">
-            <span class="eyebrow">The floor</span>
-            <h2 class="mt-16">Filter by body type.</h2>
+          <div class="sec-head-copy reveal-l">
+            <span class="kicker">The floor</span>
+            <h2>Filter by <em class="h-italic">body type.</em></h2>
           </div>
-          <a class="btn btn-ghost reveal-r" href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle." target="_blank" rel="noopener">Ask us to source</a>
+          <a class="btn btn-ghost reveal-r" href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle%20-%20can%20you%20source%20it%3F" target="_blank" rel="noopener">Ask us to source</a>
         </div>
-        <div class="filter-bar reveal mt-36" role="tablist" aria-label="Filter vehicles by body type">
-          <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button type="button" class="chip" data-filter="Sedan" role="tab" aria-selected="false">Sedan</button>
-          <button type="button" class="chip" data-filter="SUV" role="tab" aria-selected="false">SUV</button>
-          <button type="button" class="chip" data-filter="Pickup" role="tab" aria-selected="false">Pickup</button>
-          <button type="button" class="chip" data-filter="Van" role="tab" aria-selected="false">Van</button>
-          <button type="button" class="chip" data-filter="Truck" role="tab" aria-selected="false">Truck</button>
+
+        <div class="filter-bar reveal" role="tablist" aria-label="Filter vehicles by body type" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px">
+          <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--rule);background:var(--rule);color:var(--canvas);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">All</button>
+          <button type="button" class="chip" data-filter="Sedan" role="tab" aria-selected="false" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--rule);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">Sedan</button>
+          <button type="button" class="chip" data-filter="SUV" role="tab" aria-selected="false" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--rule);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">SUV</button>
+          <button type="button" class="chip" data-filter="Pickup" role="tab" aria-selected="false" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--rule);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">Pickup</button>
+          <button type="button" class="chip" data-filter="Van" role="tab" aria-selected="false" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--rule);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">Van</button>
+          <button type="button" class="chip" data-filter="Truck" role="tab" aria-selected="false" style="font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--rule);transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out)">Truck</button>
         </div>
-        <p class="sample-banner reveal mt-24" id="sample-banner" hidden><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg><span>Sample listings — real inventory drops in weekly. Enquire and we'll match you a live unit.</span></p>
-        <div class="grid grid-3 mt-36" id="vehicles-grid" data-stagger aria-live="polite"></div>
-        <p class="empty-state" id="empty-state" hidden>No vehicles match that filter right now — try another body type, or <a href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20need%20a%20specific%20vehicle." target="_blank" rel="noopener">ask us to source one</a>.</p>
+
+        <div class="sample-banner reveal" id="sample-banner" hidden style="display:flex;align-items:center;gap:12px;padding:14px 18px;margin-bottom:28px;border:1px dashed var(--rule-3);border-radius:10px;background:var(--canvas-3);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;color:var(--rule-2)">
+          <svg class="ic" aria-hidden="true" style="width:16px;height:16px;color:var(--accent-deep);flex:none"><use href="#ic-file"/></svg>
+          <span>Sample listings — real inventory drops in weekly. Enquire and we'll match you a live unit.</span>
+        </div>
+
+        <div class="grid grid-3" id="vehicles-grid" data-stagger aria-live="polite"></div>
+
+        <p class="empty-state text-center" id="empty-state" hidden style="padding:44px 20px;font-family:var(--f-body);color:var(--rule-2);font-size:1rem">
+          No vehicles match that filter right now — try another body type, or
+          <a href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20need%20a%20specific%20vehicle%20-%20can%20you%20source%20it%3F" target="_blank" rel="noopener" style="color:var(--rule);border-bottom:1.5px solid var(--accent);padding-bottom:1px">ask us to source one</a>.
+        </p>
       </div>
     </section>
+
+    <!-- ============ D-2 RULE ============ -->
+    <div class="divider d-rule" aria-hidden="true"></div>
 
     <!-- ============ HOW BUYING WORKS ============ -->
-    <section class="band">
+    <section class="section" id="how-buying-works">
       <div class="container">
-        <div class="text-center narrow reveal-scale">
-          <span class="eyebrow center">How buying works</span>
-          <h2 class="mt-16">Nothing changes hands<br>until you're sure.</h2>
-          <p class="lead mt-24">The same rule that runs the workshop runs the floor — inspect, quote, approve, close.</p>
+        <div class="text-center narrow reveal">
+          <span class="kicker center">How buying works</span>
+          <h2 class="mt-16">Nothing changes hands<br><em class="h-italic">until you're sure.</em></h2>
+          <p class="lead mt-24" style="margin-inline:auto">The same rule that runs the workshop runs the floor — inspect, quote, approve, close.</p>
         </div>
-        <div class="grid grid-3 mt-56" data-stagger>
-          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-diagnostics"/></svg></span><h3>Inspect</h3><p class="subtle">Full mechanical and body check before we hand you the keys — the same technicians who service every day.</p></article>
-          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-key"/></svg></span><h3>Test drive</h3><p class="subtle">Drive it on real Kampala roads. Nothing on paper replaces ten minutes on the tarmac.</p></article>
-          <article class="panel-card reveal"><span class="icon-pill"><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg></span><h3>Papers</h3><p class="subtle">Logbook, transfer, tax — handled cleanly. We won't sell a vehicle whose paperwork we haven't seen ourselves.</p></article>
+        <div class="grid grid-3 mt-88" data-stagger>
+          <article class="card reveal">
+            <div class="card-top"><span class="card-no">Step 01</span><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-diagnostics"/></svg></span></div>
+            <h3>Inspect</h3>
+            <p class="subtle">Full mechanical and body check before we hand you the keys — the same technicians who service on the floor every day.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-top"><span class="card-no">Step 02</span><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-key"/></svg></span></div>
+            <h3>Test drive</h3>
+            <p class="subtle">Drive it on real Kampala roads. Nothing on paper replaces ten minutes on the tarmac with the vehicle you're about to own.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-top"><span class="card-no">Step 03</span><span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg></span></div>
+            <h3>Papers</h3>
+            <p class="subtle">Logbook, transfer, tax — handled cleanly. We won't sell a vehicle whose paperwork we haven't seen ourselves.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <div class="seam" aria-hidden="true"></div>
+    <!-- ============ D-3 IGNITION ============ -->
+    <div class="divider d-ignition" aria-hidden="true"></div>
 
     <!-- ============ CTA ============ -->
-    <section class="cta-banner" id="contact">
+    <section class="cta">
       <div class="container">
-        <span class="eyebrow center reveal">Not on the floor yet?</span>
-        <h2 class="mt-24 reveal">We source<br>to <span class="orange">order.</span></h2>
+        <span class="kicker center reveal">Not on the floor yet?</span>
+        <h2 class="mt-24 reveal">We source<br><em class="h-italic">to order.</em></h2>
         <p class="lead mt-24 reveal">Tell us the make, model, year, budget and how you'll use it — we'll come back with three honest options.</p>
-        <div class="cta-row cta-center mt-36 reveal">
-          <a class="btn btn-primary" data-magnetic href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Tell us what you need</a>
+        <div class="cta-row cta-center reveal">
+          <a class="btn btn-primary" href="https://wa.me/256782017381?text=Hello%20Lumu%2C%20I%20am%20looking%20for%20a%20specific%20vehicle%20-%20can%20you%20source%20it%3F" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Tell us what you need</a>
           <a class="btn btn-ghost" href="contact.html">Visit the workshop</a>
         </div>
       </div>
@@ -89,12 +123,119 @@
 
   <noscript>
     <div style="padding:16px;text-align:center;font-family:monospace">
-      <a href="index.html">Home</a> · <a href="services.html">Services</a> · <a href="fleet.html">Fleet</a> · <a href="real-estate.html">Real Estate</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · Call +256 782 017 381
+      <a href="index.html">Home</a> · <a href="vehicles.html">Vehicles</a> · <a href="services.html">Services</a> · <a href="fleet.html">Fleet</a> · <a href="real-estate.html">Real Estate</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a>
       <p style="margin-top:14px">Vehicle listings need JavaScript. WhatsApp us and we'll send you a live list.</p>
     </div>
   </noscript>
-  <script src="js/chrome.js"></script>
+  <script src="js/studio-chrome.js"></script>
   <script src="data/vehicles.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/studio.js"></script>
+  <script>
+    /* ============================================================
+       VEHICLES GRID RENDERER — inline (studio.js doesn't ship it)
+       Reads window.LUMU_VEHICLES, builds hairline cards on canvas,
+       wires the filter chips + empty state + sample banner.
+       ============================================================ */
+    (function () {
+      var grid = document.getElementById("vehicles-grid");
+      var empty = document.getElementById("empty-state");
+      var countEl = document.getElementById("v-count");
+      var sampleBanner = document.getElementById("sample-banner");
+      var vehicles = window.LUMU_VEHICLES;
+      if (!grid || !vehicles || !vehicles.length) return;
+
+      var UGX = function (n) {
+        if (n == null) return "POA";
+        if (n >= 1e9) return "UGX " + (n / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
+        if (n >= 1e6) return "UGX " + Math.round(n / 1e5) / 10 + "M";
+        return "UGX " + n.toLocaleString("en-UG");
+      };
+      var KM = function (n) { return (n / 1000).toFixed(0) + "k km"; };
+      var bodyIcon = { Sedan: "gauge", SUV: "shield", Pickup: "truck", Van: "truck", Truck: "truck" };
+
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+      }
+
+      function card(v) {
+        var waText = "Hello Lumu, I am interested in the " + v.year + " " + v.make + " " + v.model + " (" + v.id + ").";
+        var wa = "https://wa.me/256782017381?text=" + encodeURIComponent(waText);
+        var ic = bodyIcon[v.body] || "gauge";
+        return '<article class="card tilt reveal" data-body="' + esc(v.body) + '">' +
+          '<div class="card-top">' +
+            '<span class="card-no">' + esc(v.body) + " · " + esc(v.year) + '</span>' +
+            '<span class="icon-mark"><svg class="ic" aria-hidden="true"><use href="#ic-' + ic + '"/></svg></span>' +
+          '</div>' +
+          '<h3>' + esc(v.make) + " " + esc(v.model) + '</h3>' +
+          '<p class="subtle" style="font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;color:var(--rule-2);text-transform:none;margin-top:-2px">' +
+            esc(KM(v.km)) + ' · ' + esc(v.trans) + ' · ' + esc(v.fuel) +
+          '</p>' +
+          (v.note ? '<p class="subtle" style="font-size:.94rem">' + esc(v.note) + '</p>' : '') +
+          '<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--hairline)">' +
+            '<b class="tabular" style="font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.55rem;color:var(--accent-deep);letter-spacing:-.01em;line-height:1">' + esc(UGX(v.price)) + '</b>' +
+            '<a class="card-cta" href="' + wa + '" target="_blank" rel="noopener" style="margin-top:0">Enquire</a>' +
+          '</div>' +
+        '</article>';
+      }
+
+      // render
+      grid.innerHTML = vehicles.map(card).join("");
+      if (countEl) countEl.textContent = vehicles.length;
+      if (sampleBanner && vehicles.some(function (v) { return v.sample; })) {
+        sampleBanner.hidden = false;
+      }
+
+      // reveal newly-inserted cards (main observer already ran)
+      grid.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+
+      // re-stagger children (studio.js already ran before we injected)
+      Array.prototype.forEach.call(grid.children, function (kid, i) {
+        kid.style.setProperty("--d", (i * 0.06).toFixed(2) + "s");
+      });
+
+      // filter chips
+      var chips = document.querySelectorAll(".filter-bar .chip");
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          chips.forEach(function (c) {
+            var active = c === chip;
+            c.classList.toggle("active", active);
+            c.setAttribute("aria-selected", active ? "true" : "false");
+            if (active) {
+              c.style.background = "var(--rule)";
+              c.style.color = "var(--canvas)";
+              c.style.borderColor = "var(--rule)";
+            } else {
+              c.style.background = "transparent";
+              c.style.color = "var(--rule)";
+              c.style.borderColor = "var(--hairline)";
+            }
+          });
+          var f = chip.dataset.filter;
+          var shown = 0;
+          grid.querySelectorAll(".card").forEach(function (el) {
+            var match = f === "all" || el.dataset.body === f;
+            el.hidden = !match;
+            if (match) shown++;
+          });
+          if (empty) empty.hidden = shown > 0;
+        });
+
+        // hover state for non-active chips
+        chip.addEventListener("pointerenter", function () {
+          if (!chip.classList.contains("active")) {
+            chip.style.borderColor = "var(--rule)";
+          }
+        });
+        chip.addEventListener("pointerleave", function () {
+          if (!chip.classList.contains("active")) {
+            chip.style.borderColor = "var(--hairline)";
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
