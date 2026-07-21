@@ -2,7 +2,9 @@ name: Deploy site to GitHub Pages
 
 on:
   # Pages Source is "GitHub Actions", so this workflow IS the deploy.
-  # Publishes the framework-free static site in /static-site on every push to main.
+  # Publishes the framework-free static site at the repo root on every push to main.
+  # We stage only the site files into _site/ so /platform, /docs, /.github,
+  # /.claude never appear on the deployed Pages URL.
   push:
     branches: [main]
   workflow_dispatch:
@@ -24,8 +26,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Stage site files into _site/
+        run: |
+          mkdir -p _site
+          cp -r *.html css js assets data manifest.webmanifest robots.txt sitemap.xml .nojekyll _site/
+          ls -la _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: static-site
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
