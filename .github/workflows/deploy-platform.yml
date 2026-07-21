@@ -29,7 +29,8 @@ jobs:
       - name: Stage site files into _site/
         run: |
           mkdir -p _site
-          cp -r *.html css js assets data manifest.webmanifest robots.txt sitemap.xml .nojekyll _site/
+          cp -r *.html css js assets data manifest.webmanifest robots.txt sitemap.xml _site/
+          touch _site/.nojekyll
           ls -la _site/
       - uses: actions/upload-pages-artifact@v3
         with:
